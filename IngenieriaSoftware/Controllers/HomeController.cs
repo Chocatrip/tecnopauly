@@ -34,30 +34,15 @@ namespace IngenieriaSoftware.Controllers
             return View();
         }
         public IActionResult Tabla() {
-            var datos = new Models.DatoTablaModel[10];
-            for (int i = 0; i < 10; i++) {
-                var fila = new Models.DatoTablaModel();
-                if (i == 0)
-                {
-                    fila.NombreProducto = context.prueba.Select(p => p.id).FirstOrDefault().ToString();
-                    fila.Categoria = context.prueba.Select(p => p.value).FirstOrDefault();
-                    fila.Codigo = "Codigo " + i;
-                    fila.Descripcion = "Descripcion " + i;
-                    fila.PrecioCosto = i * 500;
-                    fila.PrecioVenta = i * 1250;
-                }
-                else {
-                    fila.NombreProducto = "Nombre Prueba " + i;
-                    fila.Categoria = "Categoria " + i;
-                    fila.Codigo = "Codigo " + i;
-                    fila.Descripcion = "Descripcion " + i;
-                    fila.PrecioCosto = i * 500;
-                    fila.PrecioVenta = i * 1250;
-                }
-                
-
-                datos[i] = fila;
-            }
+            var datos = context.producto.Select(p => new Models.DatoTablaModel {
+                id = p.id,
+                NombreProducto = p.nombre_producto,
+                Categoria = p.categoria,
+                Descripcion = p.descripcion,
+                Codigo = p.codigo,
+                PrecioCosto = p.precio_costo,
+                PrecioVenta = p.precio_venta
+            }).ToArray();
             
 
             var model = new Models.TablaModel();

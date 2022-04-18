@@ -14,6 +14,6 @@ namespace IngenieriaSoftware.Data
         }
 
         public DbSet<pruebaClass> prueba { get; set; }
-
+        public DbSet<productoClass> producto { get; set; }
     }
 }

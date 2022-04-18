@@ -10,6 +10,7 @@ namespace IngenieriaSoftware.Models
         public DatoTablaModel[] Datos { get; set; }
     }
     public class DatoTablaModel {
+        public int id { get; set; }
         public string NombreProducto { get; set; }
         public string Categoria { get; set; }
         public string Descripcion { get; set; }
