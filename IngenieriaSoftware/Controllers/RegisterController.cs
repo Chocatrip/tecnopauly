@@ -22,6 +22,9 @@ namespace IngenieriaSoftware.Controllers
 
         [HttpPost("register")]
         public async Task<ActionResult> RegisterControl([FromForm] IngenieriaSoftware.Models.RegistrarModel model) {
+            if (String.IsNullOrEmpty(model.nombre) || String.IsNullOrEmpty(model.correo) || String.IsNullOrEmpty(model.username) || String.IsNullOrEmpty(model.pass)) {
+                return StatusCode(StatusCodes.Status400BadRequest, new { Message = "No se permiten formularios en blanco." });
+            }
             var nombre = model.nombre.Trim().ToLower();
             var correo = model.correo.Trim().ToLower();
             var username = model.username.Trim().ToLower();
