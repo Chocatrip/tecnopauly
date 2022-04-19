@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Blazored.SessionStorage;
 
 namespace IngenieriaSoftware
 {
@@ -26,6 +27,9 @@ namespace IngenieriaSoftware
         {
             services.AddControllersWithViews();
             services.AddDbContext<Data.AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DB")));
+            services.AddSession();
+            services.AddBlazoredSessionStorage();
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +51,7 @@ namespace IngenieriaSoftware
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

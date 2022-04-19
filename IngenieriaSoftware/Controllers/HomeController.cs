@@ -24,13 +24,19 @@ namespace IngenieriaSoftware.Controllers
         {
             return View();
         }
-
+        
         public IActionResult Privacy()
         {
             return View();
         }
 
+        public IActionResult Login() {
+            return View();
+        }
         public IActionResult Ingresar() {
+            return View();
+        }
+        public IActionResult Registrar() {
             return View();
         }
         public IActionResult Tabla() {
@@ -49,6 +55,10 @@ namespace IngenieriaSoftware.Controllers
             model.Datos = datos;
 
             return View(model);
+        }
+
+        public IActionResult Contacto() {
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

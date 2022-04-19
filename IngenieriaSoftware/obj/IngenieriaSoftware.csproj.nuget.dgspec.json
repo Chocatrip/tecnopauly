@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Carpetas de escritorio\\U\\IngenieriaSoftware\\IngenieriaSoftware\\IngenieriaSoftware.csproj": {}
+    "D:\\Carpetas de escritorio\\U\\TecnoPauly\\IngenieriaSoftware\\IngenieriaSoftware.csproj": {}
   },
   "projects": {
-    "D:\\Carpetas de escritorio\\U\\IngenieriaSoftware\\IngenieriaSoftware\\IngenieriaSoftware.csproj": {
+    "D:\\Carpetas de escritorio\\U\\TecnoPauly\\IngenieriaSoftware\\IngenieriaSoftware.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Carpetas de escritorio\\U\\IngenieriaSoftware\\IngenieriaSoftware\\IngenieriaSoftware.csproj",
+        "projectUniqueName": "D:\\Carpetas de escritorio\\U\\TecnoPauly\\IngenieriaSoftware\\IngenieriaSoftware.csproj",
         "projectName": "IngenieriaSoftware",
-        "projectPath": "D:\\Carpetas de escritorio\\U\\IngenieriaSoftware\\IngenieriaSoftware\\IngenieriaSoftware.csproj",
+        "projectPath": "D:\\Carpetas de escritorio\\U\\TecnoPauly\\IngenieriaSoftware\\IngenieriaSoftware.csproj",
         "packagesPath": "C:\\Users\\Yokai\\.nuget\\packages\\",
-        "outputPath": "D:\\Carpetas de escritorio\\U\\IngenieriaSoftware\\IngenieriaSoftware\\obj\\",
+        "outputPath": "D:\\Carpetas de escritorio\\U\\TecnoPauly\\IngenieriaSoftware\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,9 +44,17 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Blazored.SessionStorage": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "EntityFramework6.Npgsql": {
               "target": "Package",
               "version": "[6.4.3, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
