@@ -479,3 +479,4 @@ IngenieriaSoftware/obj/IngenieriaSoftware.csproj.nuget.g.props
 IngenieriaSoftware/obj/IngenieriaSoftware.csproj.nuget.g.targets
 IngenieriaSoftware/obj/project.assets.json
 IngenieriaSoftware/obj/project.nuget.cache
+*.cache
