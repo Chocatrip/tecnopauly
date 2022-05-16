@@ -461,3 +461,12 @@ IngenieriaSoftware/obj/Debug/net5.0/IngenieriaSoftware.csproj.AssemblyReference.
 IngenieriaSoftware/obj/Debug/net5.0/IngenieriaSoftware.assets.cache
 IngenieriaSoftware/.vs/IngenieriaSoftware/v16/.suo
 IngenieriaSoftware/.vs/IngenieriaSoftware/DesignTimeBuild/.dtbcache.v2
+*.cache
+*.json
+*.targets
+*.props
+*.json
+*.cache
+*.cache
+IngenieriaSoftware/.vs/IngenieriaSoftware/v16/.suo
+*.v2
