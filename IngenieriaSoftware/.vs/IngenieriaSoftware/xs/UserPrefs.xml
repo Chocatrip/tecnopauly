@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{1F48CF66-977B-4525-8A76-29A88458B683}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Shared/_Layout.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Shared/_LayoutClientes.cshtml">
     <Files>
-      <File FileName="Views/Home/Contacto.cshtml" Line="1" Column="1" IsPinned="True" />
-      <File FileName="Views/Shared/LayoutClientes.cshtml" Line="9" Column="5" />
-      <File FileName="Views/Home/Tabla.cshtml" Line="1" Column="1" />
-      <File FileName="Views/Home/Index.cshtml" Line="3" Column="37" />
-      <File FileName="Views/Shared/_Layout.cshtml" Line="11" Column="40" />
+      <File FileName="wwwroot/css/style.scss" Line="5" Column="13" />
+      <File FileName="wwwroot/css/style.css" Line="103" Column="1" />
+      <File FileName="Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Shared/_Layout.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Shared/_LayoutClientes.cshtml" Line="142" Column="127" />
+      <File FileName="Views/Home/Login.cshtml" Line="40" Column="95" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,11 +15,16 @@
             <Node name="IngenieriaSoftware" expanded="True">
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True" />
+                <Node name="Login" expanded="True" />
                 <Node name="Shared" expanded="True">
-                  <Node name="_Layout.cshtml" selected="True" />
+                  <Node name="_LayoutClientes.cshtml" selected="True" />
                 </Node>
               </Node>
-              <Node name="wwwroot" expanded="True" />
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True">
+                  <Node name="style.scss" expanded="True" />
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>

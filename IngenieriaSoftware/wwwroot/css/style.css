@@ -48,7 +48,7 @@ body {
 }
 
 .heading_container h2 span {
-  color: #f3c93e;
+  color: #F2B950;
 }
 
 .heading_container.heading_center {
@@ -94,11 +94,11 @@ a:focus {
 }
 
 .sub_page .about_section {
-  background-color: #313958;
+    background-color: #3D3D58 /*#313958*/ ;
 }
 
 .header_section {
-  background-color: #3a4468;
+    background-color: #0B0B30; /*#3a4468*/
 }
 
 .header_section .container-fluid {
@@ -107,8 +107,8 @@ a:focus {
 }
 
 .header_section .header_top {
-  padding: 15px 0;
-  background-color: #434f78;
+    padding: 15px 0;
+    background-color: #3D3D58/*#434f78*/;
 }
 
 .header_section .header_bottom {
@@ -708,9 +708,9 @@ a:focus {
 }
 
 .info_section {
-  background-color: #3a4468;
-  color: #ffffff;
-  padding: 90px 0 45px 0;
+    background-color: #0B0B30 /*#3a4468*/;
+    color: #ffffff;
+    padding: 90px 0 45px 0;
 }
 
 .info_section h5 {
@@ -764,9 +764,9 @@ a:focus {
 
 /* footer section*/
 .footer_section {
-  position: relative;
-  background-color: #3a4468;
-  text-align: center;
+    position: relative;
+    background-color: #3D3D58/*#3a4468*/;
+    text-align: center;
 }
 
 .footer_section p {

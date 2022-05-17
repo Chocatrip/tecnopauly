@@ -21,7 +21,6 @@
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/Razor/Views/Home/Tabla.cshtml.g.cs
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/Razor/Views/Login/LoginControl.cshtml.g.cs
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/Razor/Views/Shared/Error.cshtml.g.cs
-/Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/Razor/Views/Shared/LayoutClientes.cshtml.g.cs
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/Razor/Views/Shared/_Layout.cshtml.g.cs
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/Razor/Views/_ViewImports.cshtml.g.cs
@@ -31,7 +30,6 @@
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/IngenieriaSoftware.dll
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/ref/IngenieriaSoftware.dll
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/IngenieriaSoftware.pdb
-/Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/bin/Debug/net5.0/Views/Shared/LayoutClientes.cshtml
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/bin/Debug/net5.0/appsettings.Development.json
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/bin/Debug/net5.0/appsettings.json
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/bin/Debug/net5.0/IngenieriaSoftware.deps.json
@@ -75,3 +73,4 @@
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/IngenieriaSoftware.Views.pdb
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/IngenieriaSoftware.csproj.CopyComplete
 /Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/IngenieriaSoftware.genruntimeconfig.cache
+/Users/catita/Desktop/Ing de software/tecnopauly/IngenieriaSoftware/obj/Debug/net5.0/Razor/Views/Shared/_LayoutClientes.cshtml.g.cs
