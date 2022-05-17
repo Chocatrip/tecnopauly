@@ -1,39 +1,72 @@
-﻿@model TablaModel
-@*
+﻿
+@model TablaModel
 
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    var data = Model.Datos;
-}
 
-<div>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Nombre Producto</th>
-                <th>Categoria</th>
-                <th>Codigo</th>
-                <th>Descripcion</th>
-                <th>Precio Costo</th>
-                <th>Precio Venta</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (int i = 0; i < data.Length; i++) {
-            <tr>
-                <td> @(i+1)</td>
-                <td>@data[i].NombreProducto</td>
-                <td>@data[i].Categoria</td>
-                <td>@data[i].Codigo</td>
-                <td>@data[i].Descripcion</td>
-                <td>$@data[i].PrecioCosto</td>
-                <td>$@data[i].PrecioVenta</td>
-            </tr>
-            }
-        </tbody>
-    </table>
-</div>
+@{ var data = Model.Datos; }
 
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<div class="inventual-breadcrumb-area-inner px-0.5">
+    <h5 class="text-20 text-black font-bold mb-3">Product List</h5>
+    <div class="inventual-breadcrumb-area-inner-wrap">
+        <span class="text-14 text-gray font-normal inline-block mr-2">Trading</span>
+        <span class="text-14 text-gray font-normal inline-block mr-2">&gt;</span>
+        <span class="text-14 text-gray font-normal inline-block mr-2">Product</span>
+        <span class="text-14 text-gray font-normal inline-block mr-2">&gt;</span>
+        <span class="text-14 text-gray font-normal inline-block mr-2">Product List</span>
+    </div>
+</div>
+<hr>
+<!--COMIENZO DE LA TABLA DE PRODUCTOS-->
+<div class="">
+    <div class="">
+
+        <h4 class="">Lista de Productos</h4>
+
+        <div class="">
+            <button mat-raised-button="" color="accent" class="mat-focus-indicator mb-1 mat-raised-button mat-button-base mat-accent" tabindex="0">
+                <span class="mat-button-wrapper">
+                    <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">add</mat-icon> Agregar Producto Nuevo
+                </span>
+                <span matripple="" class="mat-ripple mat-button-ripple"></span>
+                <span class="mat-button-focus-overlay"></span>
+            </button>
+        </div>
+
+        <div>
+            <table class="table table-sm table_section">
+                <thead>
+                    <tr>
+                        <th>Nº</th>
+                        <th>Producto</th>
+                        <th>Código</th>
+                        <th>Categoria</th>
+                        <th>Marca</th>
+                        <th>Stock</th>
+                        <th>Precio Costo</th>
+                        <th>Precio Venta</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < data.Length; i++)
+                    {
+                    <tr>
+                        <td> @(i+1)</td>
+                        <td>@data[i].NombreProducto</td>
+                        <td>@data[i].Codigo</td>
+                        <td>@data[i].Categoria</td>
+                        <td><!--data[i].Marca-->MARCA</td>
+                        <td><!--data[i].Stock-->STOCK</td>
+                        <td>$@data[i].PrecioCosto</td>
+                        <td>$@data[i].PrecioVenta</td>
+                    </tr>
+}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

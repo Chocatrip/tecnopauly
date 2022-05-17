@@ -768,3 +768,25 @@ a:focus {
 
 
 // end footer section
+
+/* table section*/
+
+.table_section {
+    position: relative;
+    background-color: $primary2;
+    text-align: center;
+
+    p {
+        border-top: 1px solid $white;
+        color: $white;
+        padding: 20px 0;
+        margin: 0;
+
+        a {
+            color: inherit;
+        }
+    }
+}
+
+
+// end table section

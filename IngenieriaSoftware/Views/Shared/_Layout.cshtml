@@ -31,7 +31,7 @@
 </head>
 
 
-<body>
+<body style="margin-bottom: 0">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 
@@ -83,7 +83,7 @@
                     <nav class="navbar navbar-expand-lg custom_nav-container ">
                         <a class="navbar-brand" href="index.html">
                             <span>
-                                <img src="~/images/tecnopauly-logo.png" height="100px"> TECNOPAULY
+                                <img src="~/images/tecnopauly-logo.png" height="65px"> TECNOPAULY
                             </span>
                         </a>
 
@@ -117,23 +117,109 @@
                 </div>
             </div>
         </header>
-    </div>
+
+     @RenderBody()
 
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+        <section class="info_section ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="info_contact">
+                            <h5>
+                                <a href="" class="navbar-brand">
+                                    <span>
+                                        TECNOPAULY
+                                    </span>
+                                </a>
+                            </h5>
+                            <p>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                Feria de la casa
+                            </p>
+                            <p>
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                +569 40371752
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                tecnopauly@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_info">
+                            <h5>
+                                Information
+                            </h5>
+                            <p>
+                                Info de tecnopauly
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_links">
+                            <h5>
+                                Useful Link
+                            </h5>
+                            <ul>
+                                <li>
+                                    <a href="index.html">
+                                        Inicio
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="product.html">
+                                        Productos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="login.html">
+                                        Login
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">
+                                        Contacto
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_form ">
+                            <h5>
+                                Síguenos en nuestra redes sociales
+                            </h5>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - IngenieriaSoftware - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+                            <div class="social_box">
+                                <a href="">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- footer section -->
+        <footer class="footer_section">
+            <div class="container">
+                <p>
+                    &copy; <span id="displayYear"></span> All Rights Reserved
+                </p>
+            </div>
+        </footer>
+        <!-- footer section -->
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
