@@ -534,19 +534,21 @@ a:focus {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        width: 110px;
-        height: 50px;
-        -webkit-transform: translateY(50%);
-        transform: translateY(50%);
+        width: 100%;
+        height: 84.1%;
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
         z-index: 3;
+        opacity: 70%;
     }
 
         .slider_section .carousel_btn_box .carousel-control-prev,
         .slider_section .carousel_btn_box .carousel-control-next {
             position: unset;
             width: 50px;
-            height: 50px;
-            background-color: #340266;
+            height: 100%;
+            background-color: transparent;
+            color: black;
             opacity: 1;
             -webkit-transition: all .2s;
             transition: all .2s;
@@ -560,7 +562,8 @@ a:focus {
 
             .slider_section .carousel_btn_box .carousel-control-prev:hover,
             .slider_section .carousel_btn_box .carousel-control-next:hover {
-                background-color: #F216CE;
+                background-color: transparent;
+                opacity: 0%;
             }
 
 .product_section .heading_container {
@@ -1473,19 +1476,21 @@ a:focus {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        width: 110px;
-        height: 50px;
-        -webkit-transform: translateY(50%);
-        transform: translateY(50%);
+        width: 100%;
+        height: 84.1%;
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
         z-index: 3;
+        opacity: 70%;
     }
 
         .slider_section .carousel_btn_box .carousel-control-prev,
         .slider_section .carousel_btn_box .carousel-control-next {
             position: unset;
             width: 50px;
-            height: 50px;
-            background-color: #340266;
+            height: 100%;
+            background-color: transparent;
+            color: black;
             opacity: 1;
             -webkit-transition: all .2s;
             transition: all .2s;
@@ -1499,7 +1504,8 @@ a:focus {
 
             .slider_section .carousel_btn_box .carousel-control-prev:hover,
             .slider_section .carousel_btn_box .carousel-control-next:hover {
-                background-color: #F216CE;
+                background-color: transparent;
+                opacity: 0%;
             }
 
 .product_section .heading_container {
@@ -2113,19 +2119,21 @@ a:focus {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        width: 110px;
-        height: 50px;
-        -webkit-transform: translateY(50%);
-        transform: translateY(50%);
+        width: 100%;
+        height: 84.1%;
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
         z-index: 3;
+        opacity: 70%;
     }
 
         .slider_section .carousel_btn_box .carousel-control-prev,
         .slider_section .carousel_btn_box .carousel-control-next {
             position: unset;
             width: 50px;
-            height: 50px;
-            background-color: #340266;
+            height: 100%;
+            background-color: transparent;
+            color: black;
             opacity: 1;
             -webkit-transition: all .2s;
             transition: all .2s;
@@ -2139,7 +2147,8 @@ a:focus {
 
             .slider_section .carousel_btn_box .carousel-control-prev:hover,
             .slider_section .carousel_btn_box .carousel-control-next:hover {
-                background-color: #F216CE;
+                background-color: transparent;
+                opacity: 0%;
             }
 
 .product_section .heading_container {
@@ -2798,19 +2807,21 @@ text-align: center;
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        width: 110px;
-        height: 50px;
-        -webkit-transform: translateY(50%);
-        transform: translateY(50%);
+        width: 100%;
+        height: 84.1%;
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
         z-index: 3;
+        opacity: 70%;
     }
 
         .slider_section .carousel_btn_box .carousel-control-prev,
         .slider_section .carousel_btn_box .carousel-control-next {
             position: unset;
             width: 50px;
-            height: 50px;
-            background-color: #340266;
+            height: 100%;
+            background-color: transparent;
+            color: black;
             opacity: 1;
             -webkit-transition: all .2s;
             transition: all .2s;
@@ -2824,7 +2835,8 @@ text-align: center;
 
             .slider_section .carousel_btn_box .carousel-control-prev:hover,
             .slider_section .carousel_btn_box .carousel-control-next:hover {
-                background-color: #F216CE;
+                background-color: transparent;
+                opacity: 0%;
             }
 
 .product_section .heading_container {
