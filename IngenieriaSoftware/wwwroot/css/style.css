@@ -3246,12 +3246,53 @@ text-align: center;
 
 /*TABLA*/
 
-.table-prod {
-    padding-left: 1.75rem;
-    padding-right: 1.75rem;
-    background-color: rgb(238, 238, 238);
+
+.table_section {
+    background-color: #FFFFFF;
 }
 
-.table-prod2 {
-    border-radius: 8px background-color: white;
-}
+    .table_section .container-fluid {
+        padding-right: 40px;
+        padding-left: 40px;
+        background-color: white;
+    }
+
+    .table_section .table_top {
+        padding: 10px 0;
+        background-color: #white;
+    }
+
+    .table_section .table_bottom {
+        padding: 10px 0;
+    }
+
+    .table_section .table_top_letter {
+        padding: 20px;
+        font-family: 'Poppins', sans-serif;
+        color: #0c0c0c;
+        background-color: #ffffff;
+        overflow-x: hidden;
+
+    }
+    .table_section .table_top_letter2 {
+        border-color:#F2F2F2;
+        padding: 20px;
+        font-family: 'Poppins', sans-serif;
+        color: #0c0c0c;
+        background-color: #ffffff;
+        overflow-x: hidden;
+        border-radius: 25px;
+    }
+
+    .table_section h5 {
+        margin-bottom: 15px;
+        font-size: 35px;
+    }
+
+    .table_section .container-btn {
+        padding-bottom: 20px;
+    }
+
+
+
+
