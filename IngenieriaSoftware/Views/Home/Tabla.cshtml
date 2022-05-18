@@ -1,7 +1,5 @@
 ﻿
 @model TablaModel
-
-
 @{ var data = Model.Datos; }
 
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -24,12 +22,120 @@
         <h4 class="">Lista de Productos</h4>
 
         <div class="">
-            <button mat-raised-button="" color="accent" class="mat-focus-indicator mb-1 mat-raised-button mat-button-base mat-accent" tabindex="0">
-                <span class="mat-button-wrapper">
-                    <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">add</mat-icon> Agregar Producto Nuevo
-                </span>
-                <span matripple="" class="mat-ripple mat-button-ripple"></span>
-                <span class="mat-button-focus-overlay"></span>
+            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal" style="color:white;">
+                Agregar producto nuevo
+            </a>
+            <!-- ADD PRODUCT MODAL -->
+            <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addProductModalLabel">Agregar producto nuevo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="error"></p>
+                            <form class="px-4 py-3"
+                                  asp-controller="Ingresar"
+                                  asp-action="IngresarProducto"
+                                  method="post"
+                                  role="form"
+                                  id="ingresar-producto-form"
+                                  onkeydown="pnPreventSubmitOnEnter(event)"
+                                  data-ajax="true">
+                                <div class="form-group">
+                                    <label for="nameProduct">Nombre</label><br>
+                                    <input class="form-control" id="nameProduct" asp-for="NombreProducto" placeholder="Nombre del Producto">
+                                </div>
+                                <div class="form-group">
+                                    <label for="catProduct">Categoria</label>
+                                    <input class="form-control" id="categoria" asp-for="Categoria" placeholder="Categoria">
+                                </div>
+                                <div class="form-group">
+                                    <label for="descProduct">Descripción</label>
+                                    <input class="form-control" id="descProduct" asp-for="Descripcion" placeholder="Descripción">
+                                </div>
+                                <div class="form-group">
+                                    <label for="codProduct">Código producto</label>
+                                    <input class="form-control" id="codProduct" asp-for="Codigo" placeholder="Código producto">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pcProduct">PrecioCosto</label>
+                                    <input class="form-control" type="number" id="pcProduct" asp-for="PrecioCosto" placeholder="Precio costo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pvProduct">PrecioVenta</label>
+                                    <input class="form-control" type="number" id="pvProduct" asp-for="PrecioVenta" placeholder="Precio venta">
+                                </div>
+                                <center>
+                                    <div class="contt5 container">
+                                        <div class="row align-self-center">
+                                            <div>
+                                                <button class="btn btn-primary"
+                                                        id="addProduct-btn"
+                                                        type="submit"
+                                                        title="addProduct">
+                                                    Agregar producto
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="contt4">
+                                        <span id="error" style=""> </span>
+                                    </div>
+                                </center>
+                            </form>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="card">
+                <div class="card-title">
+                    <h2>  Ingresar Producto</h2>
+                </div>
+                <div class="form-group row ml-3">
+                    <form asp-controller="Ingresar"
+                          asp-action="IngresarProducto"
+                          method="post"
+                          class="form-row"
+                          role="form"
+                          id="ingresar-producto-form"
+                          onkeydown="pnPreventSubmitOnEnter(event)"
+                          data-ajax="true">
+                        <label class="mr-2 col-12">
+                            Nombre Producto
+                        </label><input asp-for="NombreProducto" />
+                        <label class="mr-2 col-12">
+                            Categoría
+                        </label><input asp-for="Categoria" />
+                        <label class="mr-2 col-12">
+                            Descripción
+                        </label><input asp-for="Descripcion" />
+                        <label class="mr-2 col-12">
+                            Código
+                        </label><input asp-for="Codigo" />
+                        <label class="mr-2 col-12">
+                            Precio de costo $
+                        </label><input asp-for="PrecioCosto" />
+                        <label class="mr-2 col-12">
+                            Precio de venta $
+                        </label><input asp-for="PrecioVenta" />
+                        <button id="ingresar-producto-btn"
+                                style="width:700px"
+                                class="btn btn-primary btn-sm ml-4 col-12"
+                                type="submit"
+                                title="Ingresar-Producto">
+                            Agregar Nuevo Producto
+                        </button>
+                    </form>
+                </div>
+
+
+
+            </div>-->
+            <span matripple="" class="mat-ripple mat-button-ripple"></span>
+            <span class="mat-button-focus-overlay"></span>
             </button>
         </div>
 
@@ -51,86 +157,86 @@
                 <tbody>
                     @for (int i = 0; i < data.Length; i++)
                     {
-                    <tr>
-                        <td> @(i+1)</td>
-                        <td>@data[i].NombreProducto</td>
-                        <td>@data[i].Codigo</td>
-                        <td>@data[i].Categoria</td>
-                        <td><!--data[i].Marca-->MARCA</td>
-                        <td><!--data[i].Stock-->STOCK</td>
-                        <td>$@data[i].PrecioCosto</td>
-                        <td>$@data[i].PrecioVenta</td>
-                        <td>
-                            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal@(i)">
-                                Editar
-                            </a>
+                        <tr>
+                            <td> @(i+1)</td>
+                            <td>@data[i].NombreProducto</td>
+                            <td>@data[i].Codigo</td>
+                            <td>@data[i].Categoria</td>
+                            <td><!--data[i].Marca-->MARCA</td>
+                            <td><!--data[i].Stock-->STOCK</td>
+                            <td>$@data[i].PrecioCosto</td>
+                            <td>$@data[i].PrecioVenta</td>
+                            <td>
+                                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal@(i)" style="color:white;">
+                                    Editar
+                                </a>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="editModal@(i)" tabindex="-1" aria-labelledby="editModalLabel@(i)" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="editModalLabel@(i)">Editar @data[i].NombreProducto</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
+                                <!-- Modal -->
+                                <div class="modal fade" id="editModal@(i)" tabindex="-1" aria-labelledby="editModalLabel@(i)" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="editModalLabel@(i)">Editar @data[i].NombreProducto</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
 
-                                            <p id="error"></p>
-                                            <form class="px-4 py-3">
-                                                <div class="form-group">
-                                                    <label for="codproducto">Código Producto</label><br>
-                                                    <input class="form-control" id="codproducto" value="@data[i].Codigo" disabled>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="nameProduct">Nombre</label><br>
-                                                    <input class="form-control" id="nameProduct" placeholder="@data[i].NombreProducto">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="catProduct">Categoría</label><br>
-                                                    <input class="form-control" id="catProduct" placeholder="@data[i].Categoria">
-                                                </div>
-                                                <!--<div class="form-group">
-                                                    <label for="marcaProduct">Marca</label><br>
-                                                    //<input class="form-control" id="marcaProduct" placeholder="|ARROBA|data[i].Marca">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="stockProduct">Stock</label><br>
-                                                    <input class="form-control" id="stockProduct" placeholder="|ARROBA|data[i].Stock">
-                                                </div>-->
-                                                <div class="form-group">
-                                                    <label for="pcProduct">Precio de Costo</label>
-                                                    <input class="form-control" id="pcProduct" placeholder="@data[i].PrecioCosto">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="pvProduct">Precio de Venta</label>
-                                                    <input class="form-control" id="pvProduct" placeholder="@data[i].PrecioVenta">
-                                                </div>
-                                                <center>
-                                                    <div class="contt5 container">
-                                                        <div class="row align-self-center">
-                                                            <div>
-                                                                <button class="btn btn-primary"
-                                                                        id="product-btn"
-                                                                        type="submit"
-                                                                        title="changeProduct">
-                                                                    Guardar cambios
-                                                                </button>
+                                                <p id="error"></p>
+                                                <form class="px-4 py-3">
+                                                    <div class="form-group">
+                                                        <label for="codproducto">Código Producto</label><br>
+                                                        <input class="form-control" id="codproducto" value="@data[i].Codigo" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="nameProduct">Nombre</label><br>
+                                                        <input class="form-control" id="nameProduct" placeholder="@data[i].NombreProducto">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="catProduct">Categoría</label><br>
+                                                        <input class="form-control" id="catProduct" placeholder="@data[i].Categoria">
+                                                    </div>
+                                                    <!--<div class="form-group">
+                                                        <label for="marcaProduct">Marca</label><br>
+                                                        //<input class="form-control" id="marcaProduct" placeholder="|ARROBA|data[i].Marca">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="stockProduct">Stock</label><br>
+                                                        <input class="form-control" id="stockProduct" placeholder="|ARROBA|data[i].Stock">
+                                                    </div>-->
+                                                    <div class="form-group">
+                                                        <label for="pcProduct">Precio de Costo</label>
+                                                        <input class="form-control" id="pcProduct" placeholder="@data[i].PrecioCosto">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="pvProduct">Precio de Venta</label>
+                                                        <input class="form-control" id="pvProduct" placeholder="@data[i].PrecioVenta">
+                                                    </div>
+                                                    <center>
+                                                        <div class="contt5 container">
+                                                            <div class="row align-self-center">
+                                                                <div>
+                                                                    <button class="btn btn-primary"
+                                                                            id="product-btn"
+                                                                            type="submit"
+                                                                            title="changeProduct">
+                                                                        Guardar cambios
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="contt4">
-                                                        <span id="error" style=""> </span>
-                                                    </div>
-                                                </center>
-                                            </form>
-                                            <div class="dropdown-divider"></div>
+                                                        <div class="contt4">
+                                                            <span id="error" style=""> </span>
+                                                        </div>
+                                                    </center>
+                                                </form>
+                                                <div class="dropdown-divider"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-}
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
