@@ -4,3 +4,10 @@
         return false;
     }
 }
+function ingresarbegin(){
+    console.log("Begin ingresar");
+}
+function ingresarsuccess(){
+    console.log("Trigger success");
+    $('.modal').modal('hide');
+}
