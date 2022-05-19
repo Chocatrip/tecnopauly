@@ -1,4 +1,6 @@
-﻿@*
+﻿@using IngenieriaSoftware.Views.Shared.Components.RegisterModal
+@using IngenieriaSoftware.Views.Shared.Components.LoginModal
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -130,99 +132,32 @@
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="loginModalLabel">Inicio de Sesión</h5>
                                                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">×</span>
+                                                        <span aria-hidden="true" style="color: #F216CE">×</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-
-                                                    <p id="error"></p>
-                                                    <form class="px-4 py-3">
-                                                        <div class="form-group">
-                                                            <label for="email">Correo electrónico</label><br>
-                                                            <input class="form-control" id="email" placeholder="email@ejemplo.com">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="password">Contraseña</label>
-                                                            <input class="form-control" id="password" placeholder="Contraseña">
-                                                        </div>
-                                                        <center>
-                                                            <div class="contt5 container">
-                                                                <div class="row align-self-center">
-                                                                    <div>
-                                                                        <button class="btn btn-primary"
-                                                                                id="login-btn"
-                                                                                type="submit"
-                                                                                title="Login">
-                                                                            Iniciar Sesión
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="contt4">
-                                                                <span id="error" style=""> </span>
-                                                            </div>
-                                                        </center>
-                                                    </form>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="#registerModal" data-bs-toggle="modal" data-bs-target="#registerModal">¿Eres nuevo? Regístrate!</a>
-                                                    <a class="dropdown-item" href="#forgotModal" data-bs-toggle="modal" data-bs-target="#forgotModal">¿Olvidaste tu contraseña? Click aquí.</a>
-
+                                                    @await Component.InvokeAsync(nameof(LoginModal))
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <!--MODAL PARA REGISTRO-->
+                                    @*<a class="btn btn-primary modal-trigger" type="button" title="Registrar Usuario"
+                                        asp-action="Tabla"
+                                        data-popup-dialog-title="Registrar" data-popup-dialog-close-button="true" data-popup-dialog-size="Large">
+                                        Registrar
+                                    </a>*@
                                     <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="registerModalLabel">Registro</h5>
                                                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">×</span>
+                                                        <span aria-hidden="true" style="color: #F216CE">×</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-
-                                                    <p id="error"></p>
-                                                    <form class="px-4 py-3">
-                                                        <div class="form-group">
-                                                            <label for="email">Nombre</label><br>
-                                                            <input class="form-control" id="nombre" placeholder="Cosme">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="email">Apellido</label><br>
-                                                            <input class="form-control" id="apellido" placeholder="Fulanito">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="email">Correo electrónico</label><br>
-                                                            <input class="form-control" id="email" placeholder="email@ejemplo.com">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="password">Contraseña</label>
-                                                            <input class="form-control" id="password" placeholder="Contraseña">
-                                                        </div>
-                                                        <center>
-                                                            <div class="contt5 container">
-                                                                <div class="row align-self-center">
-                                                                    <div>
-                                                                        <button class="btn btn-primary"
-                                                                                id="register-btn"
-                                                                                type="submit"
-                                                                                title="register">
-                                                                            Registrarse
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="contt4">
-                                                                <span id="error" style=""> </span>
-                                                            </div>
-                                                        </center>
-                                                    </form>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="#loginModal" data-bs-toggle="modal" data-bs-target="#loginModal">¿Ya tienes una cuenta? Inicia sesión!</a>
-                                                    <a class="dropdown-item" href="#forgotModal" data-bs-toggle="modal" data-bs-target="#forgotModal">¿Olvidaste tu contraseña? Click aquí.</a>
-
+                                                    @await Component.InvokeAsync(nameof(RegisterModal))
                                                 </div>
                                             </div>
                                         </div>
@@ -234,7 +169,7 @@
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="forgotModalLabel">Olvidaste tu contraseña</h5>
                                                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">×</span>
+                                                        <span aria-hidden="true" style="color: #F216CE">×</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
@@ -252,7 +187,8 @@
                                                                         <button class="btn btn-primary"
                                                                                 id="forgot-btn"
                                                                                 type="submit"
-                                                                                title="forgot">
+                                                                                title="forgot"
+                                                                                style="background-color: #BC40B1; border-color: #2E0259">
                                                                             Recuperar contraseña
                                                                         </button>
                                                                     </div>
@@ -374,7 +310,6 @@
         </footer>
         <!-- footer section -->
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
