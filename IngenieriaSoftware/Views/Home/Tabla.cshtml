@@ -3,9 +3,14 @@
 
 @{ var data = Model.Datos; }
 
-@{ ViewData["Title"] = "Home Page";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
 
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.23/b-1.6.5/fc-3.3.2/sc-2.0.3/sb-1.0.1/sp-1.2.2/sl-1.3.1/datatables.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/Ingresar/ingresar.js"></script>
 
 <div class="table_section">
 
@@ -55,7 +60,9 @@
                                                   role="form"
                                                   id="ingresar-producto-form"
                                                   onkeydown="pnPreventSubmitOnEnter(event)"
-                                                  data-ajax="true">
+                                                  data-ajax="true"
+                                                  data-ajax-begin="ingresarbegin"
+                                                  data-ajax-success="ingresarsuccess">
                                                 <div class="form-group">
                                                     <label for="nameProduct">Nombre</label><br>
                                                     <input class="form-control" id="nameProduct" asp-for="NombreProducto" placeholder="Nombre del Producto">
@@ -237,6 +244,14 @@
                                                                                             type="submit"
                                                                                             title="changeProduct">
                                                                                         Guardar cambios
+                                                                                    </button>
+                                                                                </div>                   
+                                                                                <div>
+                                                                                    <button class="btn btn-primary2"
+                                                                                            id="delproduct-btn"
+                                                                                            type="submit"
+                                                                                            title="deleteProduct">
+                                                                                        Eliminar
                                                                                     </button>
                                                                                 </div>
                                                                             </div>
