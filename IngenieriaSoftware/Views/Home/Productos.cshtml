@@ -1,11 +1,440 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{ ViewData["Title"] = "Home Page";
-    Layout = "~/Views/Shared/_Layout.cshtml"; }
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/Ingresar/ingresar.js"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<script src="~/js/jquery.scrollUp.min.js"></script>
+<script src="~/js/jquery.prettyPhoto.js"></script>
+<script src="~/js/main.js"></script>
+
+
+<section class="product_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <h2>
+                        Categorias
+                    </h2>
+
+
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Categoria 1
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <ul>
+                                        <li><a href="#">Talla S </a></li>
+                                        <li><a href="#">Talla M </a></li>
+                                        <li><a href="#">Talla L </a></li>
+                                        <li><a href="#">Talla XL </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Categoria 2
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <ul>
+                                        <li><a href="#">Talla S </a></li>
+                                        <li><a href="#">Talla M </a></li>
+                                        <li><a href="#">Talla L </a></li>
+                                        <li><a href="#">Talla XL </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Categoria 3
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <ul>
+                                        <li><a href="#">Talla S </a></li>
+                                        <li><a href="#">Talla M </a></li>
+                                        <li><a href="#">Talla L </a></li>
+                                        <li><a href="#">Talla XL </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--category-productsr-->
+                    <div class="panel-group category-products" id="accordian">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                        Poleras
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="sportswear" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="#">Talla S </a></li>
+                                        <li><a href="#">Talla M </a></li>
+                                        <li><a href="#">Talla L </a></li>
+                                        <li><a href="#">Talla XL </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordian" href="#mens">
+                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                        Polerones
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="mens" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="#">Talla S </a></li>
+                                        <li><a href="#">Talla M </a></li>
+                                        <li><a href="#">Talla L </a></li>
+                                        <li><a href="#">Talla XL </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/category-products-->
+
+                    <div class="brands_products">
+                        <!--brands_products-->
+                        <h2>Series de anime</h2>
+                        <div class="brands-name">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#"> <span class="pull-right">(50)</span>ITEM</a></li>
+                                <li><a href="#"> <span class="pull-right">(56)</span>ITEM</a></li>
+                                <li><a href="#"> <span class="pull-right">(27)</span>ITEM</a></li>
+                            </ul>
+                        </div>
+                    </div><!--/brands_products-->
+                </div>
+            </div>
+
+            <div class="col-sm-9 padding-right">
+                <div class="features_items">
+                    <!--features_items-->
+                    <h2 class="title text-center">Productos</h2>
+
+
+                    <!-- product section -->
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="images/pesacocina.png" alt="">
+                                        <a href="" class="add_cart_btn">
+                                            <span>
+                                                Agregar al Carrito
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>
+                                            Pesa de Cocina
+                                        </h5>
+                                        <div class="product_info">
+                                            <h5>
+                                                <span>$</span> 5.000
+                                            </h5>
+                                            <div class="star_container">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="images/tripodecelular.png" alt="">
+                                        <a href="" class="add_cart_btn">
+                                            <span>
+                                                Agregar al Carrito
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>
+                                            Tripode para Celular
+                                        </h5>
+                                        <div class="product_info">
+                                            <h5>
+                                                <span>$</span> 6.000
+                                            </h5>
+                                            <div class="star_container">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="images/p3.png" alt="">
+                                        <a href="" class="add_cart_btn">
+                                            <span>
+                                                Agregar al Carrito
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>
+                                            Product Name
+                                        </h5>
+                                        <div class="product_info">
+                                            <h5>
+                                                <span>$</span> 300
+                                            </h5>
+                                            <div class="star_container">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="images/p4.png" alt="">
+                                        <a href="" class="add_cart_btn">
+                                            <span>
+                                                Add To Cart
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>
+                                            Product Name
+                                        </h5>
+                                        <div class="product_info">
+                                            <h5>
+                                                <span>$</span> 300
+                                            </h5>
+                                            <div class="star_container">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="images/p5.png" alt="">
+                                        <a href="" class="add_cart_btn">
+                                            <span>
+                                                Add To Cart
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>
+                                            Product Name
+                                        </h5>
+                                        <div class="product_info">
+                                            <h5>
+                                                <span>$</span> 300
+                                            </h5>
+                                            <div class="star_container">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="images/p6.png" alt="">
+                                        <a href="" class="add_cart_btn">
+                                            <span>
+                                                Add To Cart
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>
+                                            Product Name
+                                        </h5>
+                                        <div class="product_info">
+                                            <h5>
+                                                <span>$</span> 300
+                                            </h5>
+                                            <div class="star_container">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="images/p7.png" alt="">
+                                        <a href="" class="add_cart_btn">
+                                            <span>
+                                                Add To Cart
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>
+                                            Product Name
+                                        </h5>
+                                        <div class="product_info">
+                                            <h5>
+                                                <span>$</span> 300
+                                            </h5>
+                                            <div class="star_container">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="images/p8.png" alt="">
+                                        <a href="" class="add_cart_btn">
+                                            <span>
+                                                Add To Cart
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>
+                                            Product Name
+                                        </h5>
+                                        <div class="product_info">
+                                            <h5>
+                                                <span>$</span> 300
+                                            </h5>
+                                            <div class="star_container">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="images/p9.png" alt="">
+                                        <a href="" class="add_cart_btn">
+                                            <span>
+                                                Add To Cart
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>
+                                            Product Name
+                                        </h5>
+                                        <div class="product_info">
+                                            <h5>
+                                                <span>$</span> 300
+                                            </h5>
+                                            <div class="star_container">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn_box">
+                            <a class="view_more-link" asp-area="" asp-controller="Home" asp-action="Productos">Ver Más</a>
+                        </div>
+                    </div>
+
+                    <!-- end product section -->
+
+
+
+                </div><!--features_items-->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
