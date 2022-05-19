@@ -1,15 +1,10 @@
 ﻿
 @model TablaModel
 
-
-
 @{ var data = Model.Datos; }
 
-
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.23/b-1.6.5/fc-3.3.2/sc-2.0.3/sb-1.0.1/sp-1.2.2/sl-1.3.1/datatables.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
+@{ ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
 
 
 <div class="table_section">
@@ -175,11 +170,11 @@
                                 <tbody>
 
 
-@for (int i = 0; i < data.Length; i++)
+                                    @for (int i = 0; i < data.Length; i++)
                                     {
-                                    <tr>
-                                        <td> @(i+1)</td>
-                                        <td>@data[i].NombreProducto</td>
+                                        <tr>
+                                            <td> @(i+1)</td>
+                                            <td>@data[i].NombreProducto</td>
                                             <td>@data[i].Codigo</td>
                                             <td>@data[i].Categoria</td>
                                             <td><!--data[i].Marca-->MARCA</td>

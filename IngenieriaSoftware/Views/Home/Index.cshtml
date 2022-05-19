@@ -1,5 +1,5 @@
 ﻿@{ ViewData["Title"] = "Home Page";
-       Layout = "~/Views/Shared/_LayoutNoLogin.cshtml"; }
+       Layout = "~/Views/Shared/_Layout.cshtml"; }
 
     <!-- slider section -->
     <section class="slider_section ">
@@ -368,9 +368,7 @@
             </div>
         </div>
         <div class="btn_box">
-            <a href="" class="view_more-link">
-                View More
-            </a>
+            <a class="view_more-link" asp-area="" asp-controller="Home" asp-action="Productos">Ver Más</a>
         </div>
     </div>
 </section>

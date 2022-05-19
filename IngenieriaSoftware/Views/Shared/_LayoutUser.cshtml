@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <link rel="icon" href="@Url.Content("~/images/fevicon.png")" type="image/gif" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/bootstrap.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/site.css")" />
+
+   <!-- fonts style -->
+    <link href="@Url.Content("https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap")" rel="stylesheet"> <!-- range slider -->
+    <!-- font awesome style -->
+    <link href="@Url.Content("~/css/font-awesome.min.css")" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="@Url.Content("~/css/style.css")" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="@Url.Content("~/css/responsive.css")" rel="stylesheet" />
+
+    <title>@ViewData["Title"] - TECNOPAULY</title>
+</head>
+
+
+<body style="margin-bottom: 0">
+    <script src="~/js/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
+    <div class="hero_area">
+        <!-- COMIENZO HEADER -->
+        <header class="header_section">
+            <div class="header_top">
+                <div class="container-fluid">
+                    <div class="top_nav_container">
+                        <div class="contact_nav">
+                            <a href="">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <span>
+                                    Celular : +569 40371752
+                                </span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span>
+                                    Email : tecnopauly@gmail.com
+                                </span>
+                            </a>
+                        </div>
+                        <form class="search_form">
+                            <input type="text" class="form-control" placeholder="Buscar un producto...">
+                            <button class="" type="submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                        <div class="user_option_box">
+                            <a href="" class="account-link">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span>
+                                    Mi Cuenta
+                                </span>
+                            </a>
+                            <a href="" class="cart-link">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <span>
+                                    (...)
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header_bottom">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg custom_nav-container ">
+                        <a class="navbar-brand" href="index.html">
+                            <span>
+                                <img src="~/images/planetapauly.gif" height="65px"><img src="~/images/tecnopaulyletras.png" height="65px">
+                            </span>
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class=""> </span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Ingresar">Productos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contacto">Contacto</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        @RenderBody()
+
+
+        <section class="info_section ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="info_contact">
+                            <h5>
+                                <a href="" class="navbar-brand">
+                                    <span>
+                                        <!--LOGO TECNOPAULY FOOTER-->
+                                        <img src="~/images/tecnopaulylogo.gif" height="60px">
+                                    </span>
+                                </a>
+                            </h5>
+                            <p>
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                +569 40371752
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                tecnopauly@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_info">
+                            <h5>
+                                Información
+                            </h5>
+                            <p>
+                                TecnoPauly es una tienda de ventas informales que ofrece productos tecnológicos al mejor precio.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_links">
+                            <h5>
+                                Links útiles
+                            </h5>
+                            <ul>
+                                <li>
+                                    <a href="index.html">
+                                        Inicio
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="product.html">
+                                        Productos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="login.html">
+                                        Login
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">
+                                        Contacto
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_form ">
+                            <h5>
+                                Síguenos en nuestra redes sociales
+                            </h5>
+
+                            <div class="social_box">
+                                <a href="">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- footer section -->
+        <footer class="footer_section">
+            <div class="container">
+                <p>
+                    &copy; <span id="displayYear"></span> All Rights Reserved
+                </p>
+            </div>
+        </footer>
+        <!-- footer section -->
+
+        @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

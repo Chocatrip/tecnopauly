@@ -39,6 +39,10 @@ namespace IngenieriaSoftware.Controllers
         public IActionResult Registrar() {
             return View();
         }
+        public IActionResult Productos()
+        {
+            return View();
+        }
         public IActionResult Tabla() {
             var datos = context.producto.Select(p => new Models.DatoTablaModel {
                 id = p.id,
