@@ -39,7 +39,7 @@ namespace IngenieriaSoftware.Controllers
                     }
                 }
             }
-            return View("~/Views/Login/Index.cshtml");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

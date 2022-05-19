@@ -22,6 +22,17 @@ namespace IngenieriaSoftware.Controllers
 
         public IActionResult Index()
         {
+
+            var session = (Request.Cookies["userInfo"] ?? "").ToString();
+
+            if (!String.IsNullOrEmpty(session))
+            {
+                ViewBag.Session = Int32.Parse(session);
+            }
+            else {
+                ViewBag.Session = 3;
+            }
+            
             return View();
         }
         
