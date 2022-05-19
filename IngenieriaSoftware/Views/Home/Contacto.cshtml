@@ -3,10 +3,26 @@
 *@
 @{ }
 
-@{ ViewData["Title"] = "Home Page";
-    Layout = "~/Views/Shared/_Layout.cshtml"; }
 
+@{ ViewData["Title"] = "Productos";
+                var session = ViewBag.Session;
+                if (session != 3)
+                {
+                    if (session == 0)
+                    {
+                        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+                    }
+                    else if (session == 1)
+                    {
+                        Layout = "~/Views/Shared/_LayoutUser.cshtml";
+                    }
 
+                }
+                else
+                {
+                    Layout = "~/Views/Shared/_Layout.cshtml";
+                }
+}
 
 
 

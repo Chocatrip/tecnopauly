@@ -52,6 +52,17 @@ namespace IngenieriaSoftware.Controllers
         }
         public IActionResult Productos()
         {
+            var session = (Request.Cookies["userInfo"] ?? "").ToString();
+
+            if (!String.IsNullOrEmpty(session))
+            {
+                ViewBag.Session = Int32.Parse(session);
+            }
+            else
+            {
+                ViewBag.Session = 3;
+            }
+
             return View();
         }
         public IActionResult Tabla() {
@@ -75,6 +86,17 @@ namespace IngenieriaSoftware.Controllers
         }
 
         public IActionResult Contacto() {
+            var session = (Request.Cookies["userInfo"] ?? "").ToString();
+
+            if (!String.IsNullOrEmpty(session))
+            {
+                ViewBag.Session = Int32.Parse(session);
+            }
+            else
+            {
+                ViewBag.Session = 3;
+            }
+
             return View();
         }
 
