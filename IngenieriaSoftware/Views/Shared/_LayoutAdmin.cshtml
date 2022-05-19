@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using IngenieriaSoftware.Views.Shared.Components.ProductModal
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -97,7 +98,24 @@
                                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Ingresar">Ingresar Producto</a>
+                                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#addProductModal">Ingresar Producto</a>
+                                    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="addProductModalLabel">Agregar producto nuevo</h5>
+                                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true" style="color: #F216CE">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    @await Component.InvokeAsync(nameof(ProductModal))
+                                                    <p id="error"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Tabla">Tabla de Productos</a>
