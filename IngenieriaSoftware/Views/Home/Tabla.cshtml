@@ -13,6 +13,8 @@
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.23/b-1.6.5/fc-3.3.2/sc-2.0.3/sb-1.0.1/sp-1.2.2/sl-1.3.1/datatables.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 <script src="~/js/Ingresar/ingresar.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="~/js/TablaProductos/eliminar-producto.js"></script>
 
 <div class="table_section">
 
@@ -249,12 +251,16 @@
                                                                                     </button>
                                                                                 </div>                   
                                                                                 <div>
-                                                                                    <button class="btn btn-primary2"
-                                                                                            id="delproduct-btn"
-                                                                                            type="submit"
-                                                                                            title="deleteProduct">
-                                                                                        Eliminar
-                                                                                    </button>
+                                                                                    <a
+                                                                                        class="btn btn-primary"
+                                                                                        title="Eliminar Producto"
+                                                                                        href="#"
+                                                                                        data-idproducto="@data[i].id"
+                                                                                        onclick="eliminarProducto(this)"
+                                                                                    >
+                                                                                    Eliminar Producto
+                                                                                    </a>
+                                                                                   
                                                                                 </div>
                                                                             </div>
                                                                         </div>
