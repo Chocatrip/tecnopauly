@@ -1,4 +1,4 @@
-﻿
+﻿@using IngenieriaSoftware.Views.Shared.Components.ProductModal
 @model TablaModel
 
 @{ var data = Model.Datos; }
@@ -56,8 +56,9 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
+                                            @await Component.InvokeAsync(nameof(ProductModal))
                                             <p id="error"></p>
-                                            <form class="px-4 py-3"
+                                            <!--<form class="px-4 py-3"
                                                   asp-controller="Ingresar"
                                                   asp-action="IngresarProducto"
                                                   method="post"
@@ -108,7 +109,7 @@
                                                         <span id="error" style=""> </span>
                                                     </div>
                                                 </center>
-                                            </form>
+                                            </form>-->
                                             <div class="dropdown-divider"></div>
                                         </div>
                                     </div>
@@ -251,16 +252,14 @@
                                                                                     </button>
                                                                                 </div>
                                                                                 <div>
-                                                                                    <a
-                                                                                        class="btn btn-primary"
-                                                                                        title="Eliminar Producto"
-                                                                                        href="#"
-                                                                                        data-idproducto="@data[i].id"
-                                                                                        onclick="eliminarProducto(this)"
-                                                                                    >
-                                                                                    Eliminar Producto
+                                                                                    <a class="btn btn-primary2"
+                                                                                       title="Eliminar Producto"
+                                                                                       href="#"
+                                                                                       data-idproducto="@data[i].id"
+                                                                                       onclick="eliminarProducto(this)">
+                                                                                        Eliminar Producto
                                                                                     </a>
-                                                                                   
+
                                                                                 </div>
                                                                             </div>
                                                                         </div>
