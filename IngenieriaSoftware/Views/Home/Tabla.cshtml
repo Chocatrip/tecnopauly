@@ -189,8 +189,8 @@
                                             <td>@data[i].NombreProducto</td>
                                             <td>@data[i].Codigo</td>
                                             <td>@data[i].Categoria</td>
-                                            <td><!--data[i].Marca-->MARCA</td>
-                                            <td><!--data[i].Stock-->STOCK</td>
+                                            <td>@data[i].Marca</td>
+                                            <td>@data[i].Stock</td>
                                             <td>$@data[i].PrecioCosto</td>
                                             <td>$@data[i].PrecioVenta</td>
                                             <td>
@@ -224,14 +224,18 @@
                                                                         <label for="catProduct">Categoría</label><br>
                                                                         <input class="form-control" id="catProduct" placeholder="@data[i].Categoria">
                                                                     </div>
-                                                                    <!--<div class="form-group">
+                                                                    <div class="form-group">
+                                                                        <label for="descProduct">Descripción</label><br>
+                                                                        <textarea class="form-control" id="descProduct" placeholder="@data[i].Descripcion"></textarea>
+                                                                    </div>
+                                                                    <div class="form-group">
                                                                         <label for="marcaProduct">Marca</label><br>
-                                                                        //<input class="form-control" id="marcaProduct" placeholder="|ARROBA|data[i].Marca">
+                                                                        <input class="form-control" id="marcaProduct" placeholder="@data[i].Marca">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="stockProduct">Stock</label><br>
-                                                                        <input class="form-control" id="stockProduct" placeholder="|ARROBA|data[i].Stock">
-                                                                    </div>-->
+                                                                        <input class="form-control" id="stockProduct" placeholder="@data[i].Stock">
+                                                                    </div>
                                                                     <div class="form-group">
                                                                         <label for="pcProduct">Precio de Costo</label>
                                                                         <input class="form-control" id="pcProduct" placeholder="@data[i].PrecioCosto">

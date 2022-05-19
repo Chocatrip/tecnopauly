@@ -61,6 +61,8 @@ namespace IngenieriaSoftware.Controllers
                 Categoria = p.categoria,
                 Descripcion = p.descripcion,
                 Codigo = p.codigo,
+                Marca = p.marca,
+                Stock = p.stock,
                 PrecioCosto = p.precio_costo,
                 PrecioVenta = p.precio_venta
             }).ToArray();

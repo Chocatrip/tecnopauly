@@ -25,6 +25,8 @@ namespace IngenieriaSoftware.Controllers
                 nombre_producto = model.NombreProducto,
                 categoria = model.Categoria,
                 descripcion = model.Descripcion,
+                marca = model.Marca,
+                stock = model.Stock,
                 codigo = model.Codigo,
                 precio_costo = model.PrecioCosto,
                 precio_venta = model.PrecioVenta

@@ -12,6 +12,8 @@ namespace IngenieriaSoftware.Data
         public string categoria { get; set; }
         public string descripcion { get; set; }
         public string codigo { get; set; }
+        public string marca { get; set; }
+        public int stock { get; set; }
         public int precio_costo { get; set; }
         public int precio_venta { get; set; }
     }

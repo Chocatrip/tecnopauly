@@ -20,11 +20,19 @@
     </div>
     <div class="form-group">
         <label for="descProduct">Descripción</label>
-        <input class="form-control" id="descProduct" asp-for="Descripcion" placeholder="Descripción">
+        <textarea class="form-control" id="descProduct" asp-for="Descripcion" placeholder="Descripción"></textarea>
     </div>
     <div class="form-group">
         <label for="codProduct">Código producto</label>
         <input class="form-control" id="codProduct" asp-for="Codigo" placeholder="Código producto">
+    </div>
+    <div class="form-group">
+        <label for="marcaProduct">Marca</label>
+        <input class="form-control" id="marcaProduct" asp-for="Marca" placeholder="Marca producto">
+    </div>
+    <div class="form-group">
+        <label for="stockProduct">Stock</label>
+        <input type="number" class="form-control" id="stockProduct" asp-for="Stock" placeholder="Stock producto">
     </div>
     <div class="form-group">
         <label for="pcProduct">PrecioCosto</label>
