@@ -3,6 +3,8 @@
 
 @{ var data = Model.Datos; }
 
+@{ ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -245,7 +247,7 @@
                                                                                             title="changeProduct">
                                                                                         Guardar cambios
                                                                                     </button>
-                                                                                </div>                   
+                                                                                </div>
                                                                                 <div>
                                                                                     <button class="btn btn-primary2"
                                                                                             id="delproduct-btn"
