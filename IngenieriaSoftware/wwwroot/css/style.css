@@ -3286,21 +3286,9 @@ text-align: center;
         overflow-x: hidden;
     }
 
-    .table_section .table_top_letter2 {
-        border-color: #F2F2F2;
-        padding: 20px;
-        font-family: 'Poppins', sans-serif;
-        color: #0c0c0c;
-        background-color: #ffffff;
-        overflow-x: hidden;
-        border-radius: 25px;
-    }
-
     .table_section h5 {
         margin-bottom: 15px;
         font-size: 35px;
     }
 
-    .table_section .container-btn {
-        padding-bottom: 20px;
-    }
+

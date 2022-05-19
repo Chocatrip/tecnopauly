@@ -1,20 +1,113 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-}
+@{ }
+
+@{ ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+
+
+
+
+<section class="container-fluid contact_top_letter">
+
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Contáctanos</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive mx-auto mb-5">
+        ¿Tienes alguna pregunta? Por favor no dudes en contactarnos! Te responderemos a la brevedad.
+    </p>
+
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" id="name" name="name" class="form-control">
+                            <label for="name" class="">Tu nombre</label>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" id="email" name="email" class="form-control">
+                            <label for="email" class="">Tu email</label>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <input type="text" id="subject" name="subject" class="form-control">
+                            <label for="subject" class="">Asunto</label>
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-12">
+
+                        <div class="md-form">
+                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                            <label for="message">Tu mensaje</label>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+
+            </form>
+
+            <div class="text-center text-md-left">
+                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+            </div>
+            <div class="status"></div>
+        </div>
+        <!--Grid column-->
+        <!--Grid column-->
+        <div class="col-md-3 text-center">
+            <ul class="list-unstyled mb-0">
+                <li>
+                    Recuerda que también te puedes contactar con nosotros a través de nuestro Instagram.
+                </li>
+                    <div class="image_frame">
+                        
+                    </div>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+        <!--Grid column-->
+
+    </div>
+
+</section>
+
+
 <div class="card">
     <div class="card-title">
         <h2 class="ml-2">Contacto</h2>
     </div>
     <div class="col ml-2">
-        <a class="col-auto" href="https://www.instagram.com/tecnopauly/"><img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" width="100" height="100"/></a>
+        <a class="col-auto" href="https://www.instagram.com/tecnopauly/"><img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" width="100" height="100" /></a>
         <a class="col-auto">contacto@tecnopauly.cl</a>
     </div>
 </div>
 
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/Ingresar/ingresar.js"></script>
-<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
