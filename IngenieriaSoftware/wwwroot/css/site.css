@@ -40,6 +40,15 @@ a {
     .btn-primary2:focus, .btn-primary2.focus {
         box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 1);
     }
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    justify-content: space-between;
+}
 .page-item.active .page-link {
     z-index: 1;
     color: #fff;
