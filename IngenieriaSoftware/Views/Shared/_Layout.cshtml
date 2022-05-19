@@ -23,7 +23,17 @@
     <!-- bootstrap core css -->
     <link rel="stylesheet" href="@Url.Content("~/css/site.css")" />
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/bootstrap.css")" />
-    <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")" />
+    <script src="@Url.Content("~/lib/jquery/jquery.min.js")"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src=@Url.Content("~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js")></script>
+    <script src=@Url.Content("~/lib/jquery-validate/jquery.validate.js")></script>
+    <script src=@Url.Content("~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js")></script>
+    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/TablaProductos/eliminar-producto.js"></script>
+    <script src="@Url.Content("~/js/Ingresar/ingresar.js")"></script>
+    <script src="@Url.Content("~/js/InicioSesion/IniciarSesion.js")"></script>
+    <script src="@Url.Content("~/js/InicioSesion/Registrar.js")"></script>
 
     <!-- fonts style -->
     <link href="@Url.Content("https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap")" rel="stylesheet"> <!-- range slider -->
@@ -32,6 +42,8 @@
 
     <!-- Custom styles for this template -->
     <link href="@Url.Content("~/css/style.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/css/style2.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/js/script2.js")" rel="stylesheet" />
 
     <!-- responsive style -->
     <link href="@Url.Content("~/css/responsive.css")" rel="stylesheet" />
@@ -304,13 +316,6 @@
             </div>
         </footer>
         <!-- footer section -->
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/Ingresar/ingresar.js"></script>
-        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
         @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Blazored.SessionStorage;
+using Quartz;
 
 namespace IngenieriaSoftware
 {
@@ -25,11 +26,15 @@ namespace IngenieriaSoftware
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddDbContext<Data.AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DB")));
             services.AddSession();
             services.AddBlazoredSessionStorage();
             services.AddMemoryCache();
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.UseMemberCasing();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

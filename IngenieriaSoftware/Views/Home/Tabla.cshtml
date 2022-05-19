@@ -206,17 +206,29 @@
                                                             <div class="modal-body">
 
                                                                 <p id="error"></p>
+                                                                <div class="ibox-content" style="border-color:white" id="editar-productos-tab-form">
+                                                                    <div class="sk-spinner sk-spinner-cube-grid">
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                    </div>
                                                                 <form
-                                                                asp-controller="Home"
-                                                                asp-action="EditarProducto"
-                                                                method="post"
-                                                                role="form"
-                                                                id="editar-producto-form"
-                                                                onkeydown="pnPreventSubmitOnEnter(event)"
-                                                                data-ajax="true"
-                                                                data-ajax-begin="editarbegin()"
-                                                                data-ajax-success="editarsuccess()"
-                                                                class="px-4 py-3">
+                                                                    asp-controller="Home"
+                                                                    asp-action="EditarProducto"
+                                                                    method="post"
+                                                                    role="form"
+                                                                    id="editar-producto-form"
+                                                                    onkeydown="pnPreventSubmitOnEnter(event)"
+                                                                    data-ajax="true"
+                                                                    data-ajax-begin="editarbegin()"
+                                                                    data-ajax-success="editarsuccess()"
+                                                                    class="px-4 py-3">
                                                                     <input type="hidden" asp-for=id value=@data[i].id>
                                                                     <div class="form-group">
                                                                         <label for="codproducto">Código Producto</label><br>
@@ -278,7 +290,8 @@
                                                                         </div>
                                                                     </center>
                                                                 </form>
-                                                                <div class="dropdown-divider"></div>
+                                                                </div>
+                                                                <div class="dropdown-divider"></div>  
                                                             </div>
                                                         </div>
                                                     </div>

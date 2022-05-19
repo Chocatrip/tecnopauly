@@ -4,6 +4,19 @@
 *@
 @{
 }
+<div class="ibox-content" style="border-color:white" id="login-tab-form">
+    <div class="sk-spinner sk-spinner-cube-grid">
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+                                    <div class="sk-cube"></div>
+    </div>
+
 <form 
 asp-controller="Login" 
 asp-action="Login"
@@ -11,6 +24,10 @@ method="post"
 role="form"
 id="login-form"
 onkeydown="pnPreventSubmitOnEnter(event)"
+data-ajax="true"
+data-ajax-begin="iniciarSessionbegin()"
+data-ajax-success="iniciarSessionsuccess()"
+data-ajax-failure="iniciarSessionfailure()"
 class="px-4 py-3">
     <div class="form-group">
         <label for="email">Usuario</label><br>
@@ -41,11 +58,4 @@ class="px-4 py-3">
 </form>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="#registerModal" data-bs-toggle="modal" data-bs-target="#registerModal">¿Eres nuevo? Regístrate!</a>
-<a class="dropdown-item" href="#forgotModal" data-bs-toggle="modal" data-bs-target="#forgotModal">¿Olvidaste tu contraseña? Click aquí.</a>
-
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/Ingresar/ingresar.js"></script>
-<script src="~/lib/jquery-ajax-unobtrusive-main/src/jquery.unobtrusive-ajax.js"></script>
-<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</div>

@@ -14,11 +14,11 @@
     <meta name="author" content="" />
 
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="@Url.Content("~/lib/jquery/jquery.min.js")"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-ajax-unobtrusive-main/src/jquery.unobtrusive-ajax.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src=@Url.Content("~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js")></script>
+    <script src=@Url.Content("~/lib/jquery-validate/jquery.validate.js")></script>
+    <script src=@Url.Content("~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js")></script>
     
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="~/js/TablaProductos/eliminar-producto.js"></script>
@@ -36,6 +36,8 @@
 
     <!-- Custom styles for this template -->
     <link href="@Url.Content("~/css/style.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/css/style2.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/js/script2.js")" rel="stylesheet" />
     <!-- responsive style -->
     <link href="@Url.Content("~/css/responsive.css")" rel="stylesheet" />
 

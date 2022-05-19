@@ -1,7 +1,11 @@
 ﻿
 async function ingresarsuccess() {
     console.log("Trigger success");
+    $('#ingresar-productos-tab-form').removeClass('sk-loading')
     Swal.fire({
+        customClass: {
+            container: 'my-swal'
+        },
         icon: 'success',
         title: 'Producto Agregado',
         text: 'Se recargará la página en instantes'
@@ -19,4 +23,5 @@ const pnPreventSubmitOnEnter = (e) => {
 }
 function ingresarbegin(){
     console.log("Begin ingresar");
+    $('#ingresar-productos-tab-form').addClass('sk-loading')
 }

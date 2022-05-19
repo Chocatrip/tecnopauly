@@ -23,7 +23,12 @@ namespace IngenieriaSoftware.Controllers
         [HttpPost("register")]
         public async Task<ActionResult> RegisterControl([FromForm] IngenieriaSoftware.Models.RegistrarModel model) {
             if (String.IsNullOrEmpty(model.nombre) || String.IsNullOrEmpty(model.correo) || String.IsNullOrEmpty(model.username) || String.IsNullOrEmpty(model.pass)) {
-                return StatusCode(StatusCodes.Status400BadRequest, new { Message = "No se permiten formularios en blanco." });
+
+                CookieOptions optionsError = new CookieOptions();
+                optionsError.Expires = DateTime.Now.AddSeconds(2);
+                Response.Cookies.Append("errorRegister", "No-se-permiten-formularios-en-blanco.", optionsError);
+                return StatusCode(StatusCodes.Status400BadRequest);
+
             }
             var nombre = model.nombre.Trim().ToLower();
             var correo = model.correo.Trim().ToLower();
@@ -31,10 +36,16 @@ namespace IngenieriaSoftware.Controllers
             var pass = model.pass.Trim().ToLower();
 
             if (pass.Length <= 8 || pass.Length >= 20) {
-                return StatusCode(StatusCodes.Status400BadRequest, new { Message = "Ingrese una contraseña entre 8 y 20 caracteres." });
+                CookieOptions optionsError = new CookieOptions();
+                optionsError.Expires = DateTime.Now.AddSeconds(2);
+                Response.Cookies.Append("errorRegister", "Ingrese-una-contrasena-entre-8-y-20-caracteres.", optionsError);
+                return StatusCode(StatusCodes.Status400BadRequest);
             }
             if (context.cuenta.Where(c => String.Equals(c.username, username)).Any()) {
-                return StatusCode(StatusCodes.Status400BadRequest, new { Message = "Ya existe un usuario con ese nombre." });
+                CookieOptions optionsError = new CookieOptions();
+                optionsError.Expires = DateTime.Now.AddSeconds(2);
+                Response.Cookies.Append("errorRegister", "Ya-existe-un-usuario-con-ese-nombre.", optionsError);
+                return StatusCode(StatusCodes.Status400BadRequest);
             }
             using (var ts = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
