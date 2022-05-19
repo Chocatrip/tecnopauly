@@ -12,12 +12,12 @@ a {
   color: #0366d6;
 }
 
-.btn-primary {
+#contactSubmit,.btn-primary {
     color: #fff;
     background-color: #BC40B1;
     border-color: #BC40B1;
 }
-    .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+    #contactSubmit:hover, .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
         color: #fff !important;
         background-color: #2e0259 !important;
         border-color: #2e0259 !important;
@@ -76,6 +76,7 @@ a.page-link {
     background-color: #fff;
     border: 1px solid #dee2e6;
 }
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
     background-color: #1b6ec2;
@@ -85,7 +86,7 @@ a.page-link {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 @media (min-width: 768px) {
   html {
