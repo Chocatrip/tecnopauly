@@ -14,14 +14,38 @@ a {
 
 .btn-primary {
     color: #fff;
-    background-color: #BF0F61;
-    border-color: #BF0F61;
+    background-color: #BC40B1;
+    border-color: #BC40B1;
 }
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #2e0259;
+        border-color: #2e0259;
+    }
 
+    .btn-primary:focus, .btn-primary.focus {
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 1);
+    }
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #BC40B1;
+    border-color: #BC40B1;
+}
+a.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #BC40B1;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 /* Sticky footer styles
