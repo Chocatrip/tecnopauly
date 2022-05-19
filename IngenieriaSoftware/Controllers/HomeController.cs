@@ -84,6 +84,20 @@ namespace IngenieriaSoftware.Controllers
 
             return View(model);
         }
+        public async Task<ActionResult> EditarProducto([FromForm] IngenieriaSoftware.Models.DatoTablaModel model) {
+
+            var productoACambiar = context.producto.Where(p => p.id == model.id).FirstOrDefault();
+            productoACambiar.nombre_producto = model.NombreProducto;
+            productoACambiar.descripcion = model.Descripcion;
+            productoACambiar.stock = model.Stock;
+            productoACambiar.categoria = model.Categoria;
+            productoACambiar.marca = model.Marca;
+            productoACambiar.precio_costo = model.PrecioCosto;
+            productoACambiar.precio_venta = model.PrecioVenta;
+
+            await context.SaveChangesAsync();
+            return Ok();
+        }
 
         public IActionResult Contacto() {
             var session = (Request.Cookies["userInfo"] ?? "").ToString();
