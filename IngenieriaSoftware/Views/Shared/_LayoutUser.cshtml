@@ -12,6 +12,18 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
+    <script src="@Url.Content("~/lib/jquery/jquery.min.js")"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src=@Url.Content("~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js")></script>
+    <script src=@Url.Content("~/lib/jquery-validate/jquery.validate.js")></script>
+    <script src=@Url.Content("~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js")></script>
+    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/TablaProductos/eliminar-producto.js"></script>
+
+    <script src="@Url.Content("~/js/Ingresar/ingresar.js")"></script>
+    <script src="@Url.Content("~/js/InicioSesion/CerrarSesion.js")"></script>
+
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/bootstrap.css")" />
     <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")" />
@@ -105,7 +117,11 @@
                                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contacto">Contacto</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" >Cerrar Sesión</a>
+                                    <a 
+                                    class="nav-link btn"
+                                    data-urlindex=@Url.Action("Index","Home", null, Context.Request.Scheme)
+                                    onclick="cerrarSesion(this)"
+                                    >Cerrar Sesión</a>
                                 </li>
                             </ul>
                         </div>

@@ -1,4 +1,5 @@
 ﻿@using IngenieriaSoftware.Views.Shared.Components.ProductModal
+@using IngenieriaSoftware.Views.Shared.Components.EditarModal
 @model TablaModel
 
 @{ var data = Model.Datos; }
@@ -204,93 +205,19 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-
+                                                                @await Component.InvokeAsync(nameof(EditarModal), new{
+                                                                    id = data[i].id, 
+                                                                    NombreProducto = data[i].NombreProducto, 
+                                                                    Categoria = data[i].Categoria,
+                                                                    Descripcion = data[i].Descripcion,
+                                                                    Codigo = data[i].Codigo,
+                                                                    Marca = data[i].Marca,
+                                                                    Stock = data[i].Stock,
+                                                                    PrecioCosto = data[i].PrecioCosto,
+                                                                    PrecioVenta = data[i].PrecioVenta
+                                                                })
                                                                 <p id="error"></p>
-                                                                <div class="ibox-content" style="border-color:white" id="editar-productos-tab-form">
-                                                                    <div class="sk-spinner sk-spinner-cube-grid">
-                                                                        <div class="sk-cube"></div>
-                                                                        <div class="sk-cube"></div>
-                                                                        <div class="sk-cube"></div>
-                                                                        <div class="sk-cube"></div>
-                                                                        <div class="sk-cube"></div>
-                                                                        <div class="sk-cube"></div>
-                                                                        <div class="sk-cube"></div>
-                                                                        <div class="sk-cube"></div>
-                                                                        <div class="sk-cube"></div>
-                                                                    </div>
-                                                                <form
-                                                                    asp-controller="Home"
-                                                                    asp-action="EditarProducto"
-                                                                    method="post"
-                                                                    role="form"
-                                                                    id="editar-producto-form"
-                                                                    onkeydown="pnPreventSubmitOnEnter(event)"
-                                                                    data-ajax="true"
-                                                                    data-ajax-begin="editarbegin()"
-                                                                    data-ajax-success="editarsuccess()"
-                                                                    class="px-4 py-3">
-                                                                    <input type="hidden" asp-for=id value=@data[i].id>
-                                                                    <div class="form-group">
-                                                                        <label for="codproducto">Código Producto</label><br>
-                                                                        <input asp-for=Codigo class="form-control" id="codproducto" value="@data[i].Codigo" disabled>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="nameProduct">Nombre</label><br>
-                                                                        <input asp-for=NombreProducto class="form-control" id="nameProduct" value="@data[i].NombreProducto">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="catProduct">Categoría</label><br>
-                                                                        <input asp-for=Categoria class="form-control" id="catProduct" value="@data[i].Categoria">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="descProduct">Descripción</label><br>
-                                                                        <textarea id="descProduct" type="text" name="@Html.NameFor(m => m.Descripcion)" class="form-control">@data[i].Descripcion</textarea>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="marcaProduct">Marca</label><br>
-                                                                        <input asp-for=Marca class="form-control" id="marcaProduct" value="@data[i].Marca">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="stockProduct">Stock</label><br>
-                                                                        <input asp-for=Stock class="form-control" id="stockProduct" value="@data[i].Stock">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="pcProduct">Precio de Costo</label>
-                                                                        <input asp-for=PrecioCosto class="form-control" id="pcProduct" value="@data[i].PrecioCosto">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="pvProduct">Precio de Venta</label>
-                                                                        <input asp-for=PrecioVenta class="form-control" id="pvProduct" value="@data[i].PrecioVenta">
-                                                                    </div>
-                                                                    <center>
-                                                                        <div class="contt5 container">
-                                                                            <div class="row align-self-center">
-                                                                                <div>
-                                                                                    <button class="btn btn-primary"
-                                                                                            id="product-btn"
-                                                                                            type="submit"
-                                                                                            title="changeProduct">
-                                                                                        Guardar cambios
-                                                                                    </button>
-                                                                                </div>
-                                                                                <div>
-                                                                                    <a class="btn btn-primary2"
-                                                                                       title="Eliminar Producto"
-                                                                                       href="#"
-                                                                                       data-idproducto="@data[i].id"
-                                                                                       onclick="eliminarProducto(this)">
-                                                                                        Eliminar Producto
-                                                                                    </a>
-
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="contt4">
-                                                                            <span id="error" style=""> </span>
-                                                                        </div>
-                                                                    </center>
-                                                                </form>
-                                                                </div>
+                                                                   
                                                                 <div class="dropdown-divider"></div>  
                                                             </div>
                                                         </div>

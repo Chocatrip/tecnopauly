@@ -18,10 +18,16 @@ async function handleEliminarProductoSuccess(successData, idProducto) {
 
 const eliminarProducto = async element => {
     console.log(">>eliminarProducto")
-    $('#editar-productos-tab-form').addClass('sk-loading')
+    $(`#${element.dataset.idproductodiv}`).addClass('sk-loading')
     var idProducto = element.dataset.idproducto
     console.log(element.dataset.idproducto)
     await fetch(`/api/eliminar-producto/${idProducto}`, {
         method: 'POST'
     }).then(successData => handleEliminarProductoSuccess(successData, idProducto))
+}
+
+animacionEditarProducto = async element => {
+    console.log(">>animacionEditarProducto")
+    console.log(element.dataset.idproductodiv)
+    $(`#${element.dataset.idproductodiv}`).addClass('sk-loading')
 }

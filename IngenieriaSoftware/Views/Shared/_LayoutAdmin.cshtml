@@ -1,7 +1,9 @@
 ﻿@using IngenieriaSoftware.Views.Shared.Components.ProductModal
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -23,7 +25,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="~/js/TablaProductos/eliminar-producto.js"></script>
     <script src="@Url.Content("~/js/Ingresar/ingresar.js")"></script>
-
+    <script src="@Url.Content("~/js/InicioSesion/CerrarSesion.js")"></script>
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/bootstrap.css")" />
     <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")" />
@@ -137,7 +139,11 @@
                                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contacto">Soporte</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link">Cerrar Sesión</a>
+                                    <a 
+                                    class="nav-link btn"
+                                    data-urlindex=@Url.Action("Index","Home", null, Context.Request.Scheme)
+                                    onclick="cerrarSesion(this)"
+                                    >Cerrar Sesión</a>
                                 </li>
                             </ul>
                         </div>

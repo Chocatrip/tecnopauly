@@ -1,0 +1,97 @@
+﻿@model TablaModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var data = Model;
+    var divId = data.id + "-editar-form";
+}
+
+<div class="ibox-content" style="border-color:white" id=@divId>
+                                                                    <div class="sk-spinner sk-spinner-cube-grid">
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                    </div>
+                                                                <form
+                                                                    asp-controller="Home"
+                                                                    asp-action="EditarProducto"
+                                                                    method="post"
+                                                                    role="form"
+                                                                    id="editar-producto-form"
+                                                                    onkeydown="pnPreventSubmitOnEnter(event)"
+                                                                    data-ajax="true"
+                                                                    data-ajax-begin="editarbegin()"
+                                                                    data-ajax-success="editarsuccess()"
+                                                                    class="px-4 py-3">
+                                                                    <input type="hidden" asp-for=id value=@data.id>
+                                                                    <div class="form-group">
+                                                                        <label for="codproducto">Código Producto</label><br>
+                                                                        <input asp-for=Codigo class="form-control" id="codproducto" value="@data.Codigo" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="nameProduct">Nombre</label><br>
+                                                                        <input asp-for=NombreProducto class="form-control" id="nameProduct" value="@data.NombreProducto">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="catProduct">Categoría</label><br>
+                                                                        <input asp-for=Categoria class="form-control" id="catProduct" value="@data.Categoria">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="descProduct">Descripción</label><br>
+                                                                        <textarea id="descProduct" type="text" name="@Html.NameFor(m => m.Descripcion)" class="form-control">@data.Descripcion</textarea>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="marcaProduct">Marca</label><br>
+                                                                        <input asp-for=Marca class="form-control" id="marcaProduct" value="@data.Marca">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="stockProduct">Stock</label><br>
+                                                                        <input asp-for=Stock class="form-control" id="stockProduct" value="@data.Stock">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="pcProduct">Precio de Costo</label>
+                                                                        <input asp-for=PrecioCosto class="form-control" id="pcProduct" value="@data.PrecioCosto">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="pvProduct">Precio de Venta</label>
+                                                                        <input asp-for=PrecioVenta class="form-control" id="pvProduct" value="@data.PrecioVenta">
+                                                                    </div>
+                                                                    <center>
+                                                                        <div class="contt5 container">
+                                                                            <div class="row align-self-center">
+                                                                                <div>
+                                                                                    <button class="btn btn-primary"
+                                                                                            id="product-btn"
+                                                                                            type="submit"
+                                                                                            data-idproductodiv="@divId"
+                                                                                            onclick="animacionEditarProducto(this)"
+                                                                                            title="changeProduct">
+                                                                                        Guardar cambios
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a class="btn btn-primary2"
+                                                                                       title="Eliminar Producto"
+                                                                                       href="#"
+                                                                                       data-idproducto="@data.id"
+                                                                                       data-idproductodiv="@divId"
+                                                                                       onclick="eliminarProducto(this)">
+                                                                                        Eliminar Producto
+                                                                                    </a>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="contt4">
+                                                                            <span id="error" style=""> </span>
+                                                                        </div>
+                                                                    </center>
+                                                                </form>
+</div>
