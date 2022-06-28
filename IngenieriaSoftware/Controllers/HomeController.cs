@@ -78,6 +78,7 @@ namespace IngenieriaSoftware.Controllers
             model.Datos = datos;
             return View(model);
         }
+
         public IActionResult Tabla() {
             var datos = context.producto.Select(p => new Models.DatoTablaModel {
                 id = p.id,
@@ -125,6 +126,16 @@ namespace IngenieriaSoftware.Controllers
                 ViewBag.Session = 3;
             }
 
+            return View();
+        }
+
+        public IActionResult Cuenta()
+        {
+            return View();
+        }
+
+        public IActionResult Carrito()
+        {
             return View();
         }
 
