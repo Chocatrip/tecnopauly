@@ -21,7 +21,8 @@
       onkeydown="pnPreventSubmitOnEnter(event)"
       data-ajax="true"
       data-ajax-begin="ingresarbegin()"
-      data-ajax-success="ingresarsuccess()">
+      data-ajax-success="ingresarsuccess()"
+      data-ajax-failure="ingresarfailure()">
     <div class="form-group">
         <label for="nameProduct">Nombre</label><br>
         <input class="form-control" id="nameProduct" asp-for="NombreProducto" placeholder="Nombre del Producto">
