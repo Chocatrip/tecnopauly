@@ -18,7 +18,8 @@ namespace IngenieriaSoftware.Views.Shared.Components.LoginModal
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var model = new Models.LoginModel();
+            return View(model);
         }
     }
 }
