@@ -22,7 +22,8 @@
           onkeydown="pnPreventSubmitOnEnter(event)"
           data-ajax="true"
           data-ajax-begin="ingresarbegin()"
-          data-ajax-success="ingresarsuccess()">
+          data-ajax-success="ingresarsuccess()"
+          data-ajax-failure="ingresarfailure()">
         <script>
             function checkform(form) {
                 var inputs = form.getElementsByTagName('input');
