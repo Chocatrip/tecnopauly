@@ -33,5 +33,20 @@ namespace IngenieriaSoftware.Controllers.Api
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+        [Route("guardar-cotizacion/{idCarrito}/")]
+        public async Task<IActionResult> GuardarCotizacion(int idCarrito)
+        {
+            try
+            {
+                var carritoCambiar = context.carrito.Where(car => car.id_carrito == idCarrito).FirstOrDefault();
+                carritoCambiar.activo = 0;
+                await context.SaveChangesAsync(); 
+                return Ok(idCarrito);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
     }
 }

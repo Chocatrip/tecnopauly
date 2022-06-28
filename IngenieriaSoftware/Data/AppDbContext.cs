@@ -17,5 +17,7 @@ namespace IngenieriaSoftware.Data
         public DbSet<productoClass> producto { get; set; }
         public DbSet<usuarioClass> usuario { get; set; }
         public DbSet<cuentaClass> cuenta { get; set; }
+        public DbSet<carritoClass> carrito { get; set; }
+        public DbSet <carrito_detalleClass> carrito_detalle { get; set; }
     }
 }

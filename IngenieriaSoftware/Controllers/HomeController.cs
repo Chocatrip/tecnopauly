@@ -147,9 +147,14 @@ namespace IngenieriaSoftware.Controllers
             return View();
         }
 
-        public IActionResult Carrito()
+        public IActionResult CarritoCompra()
         {
             return View();
+        }
+
+        public IActionResult PruebaGuardarCotizacion() {
+            var cotizacion = context.carrito.Where(car=> car.id_cuenta==1).FirstOrDefault();
+            return Ok(cotizacion);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
