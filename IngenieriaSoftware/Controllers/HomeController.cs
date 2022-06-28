@@ -52,7 +52,7 @@ namespace IngenieriaSoftware.Controllers
         }
         public IActionResult Productos()
         {
-            var session = (Request.Cookies["userInfo"] ?? "").ToString();
+           var session = (Request.Cookies["userInfo"] ?? "").ToString();
 
             if (!String.IsNullOrEmpty(session))
             {
@@ -62,8 +62,21 @@ namespace IngenieriaSoftware.Controllers
             {
                 ViewBag.Session = 3;
             }
-
-            return View();
+            var datos = context.producto.Select(p => new Models.DatoTablaModel
+            {
+                id = p.id,
+                NombreProducto = p.nombre_producto,
+                Categoria = p.categoria,
+                Descripcion = p.descripcion,
+                Codigo = p.codigo,
+                Marca = p.marca,
+                Stock = p.stock,
+                PrecioCosto = p.precio_costo,
+                PrecioVenta = p.precio_venta
+            }).ToArray();
+            var model = new Models.TablaModel();
+            model.Datos = datos;
+            return View(model);
         }
         public IActionResult Tabla() {
             var datos = context.producto.Select(p => new Models.DatoTablaModel {
@@ -84,6 +97,7 @@ namespace IngenieriaSoftware.Controllers
 
             return View(model);
         }
+
         public async Task<ActionResult> EditarProducto([FromForm] IngenieriaSoftware.Models.DatoTablaModel model) {
 
             var productoACambiar = context.producto.Where(p => p.id == model.id).FirstOrDefault();
