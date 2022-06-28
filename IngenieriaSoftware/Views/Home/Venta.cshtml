@@ -1,0 +1,69 @@
+﻿@using IngenieriaSoftware.Views.Shared.Components.ProductModal
+@using IngenieriaSoftware.Views.Shared.Components.EditarModal
+
+@{ ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
+
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.23/b-1.6.5/fc-3.3.2/sc-2.0.3/sb-1.0.1/sp-1.2.2/sl-1.3.1/datatables.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/TablaProductos/editar-producto.js"></script>
+
+<div class="table_section">
+
+    <div class="table_top">
+        <div class="container-fluid">
+            <div class="table_top_letter">
+                <div class="">
+                    <h5 class="">Tu Cuenta</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+        <div class="container">
+
+            <div class="shopper-informations">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="shopper-info">
+                            <form>
+                                <input type="text" placeholder="Nombre">
+                                <input type="text" placeholder="Usuario">
+                                <input type="password" placeholder="Correo electrónico">
+                                <input type="password" placeholder="Contraseña">
+                            </form>
+                            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal" style="color:white;">
+                                Editar mis datos
+                            </a>
+                            <!-- INICIO MODAL -->
+                            <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="addProductModalLabel">Editar mis datos/h5>
+                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true" style="color: #F216CE">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                     
+                                            <div class="dropdown-divider"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FIN MODAL -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+    </section>
+
+</div>
+
+

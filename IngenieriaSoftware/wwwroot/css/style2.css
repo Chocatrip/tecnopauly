@@ -1949,7 +1949,7 @@ del {
   color: #bebec3;
   font-weight: 600;
 }
-.cart-product-imitation {
+.-product-imitation {
   text-align: center;
   padding-top: 30px;
   height: 80px;
@@ -5236,4 +5236,22 @@ body.md-skin {
 
 .my-swal {
     z-index: 5000 !important;
+}
+
+/*CARRITO*/
+
+.carrito_section {
+    margin: 20px;
+}
+
+.container1 {
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #BC40B1;
+    margin-bottom: 20px;
+}
+
+.container2 {
+    font-family: 'Poppins', sans-serif;
+
 }
