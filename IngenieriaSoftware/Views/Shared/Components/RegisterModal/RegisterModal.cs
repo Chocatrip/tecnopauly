@@ -18,7 +18,8 @@ namespace IngenieriaSoftware.Views.Shared.Components.RegisterModal
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var model = new Models.RegistrarModel();
+            return View(model);
         }
 
     }
