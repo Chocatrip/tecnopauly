@@ -6,39 +6,27 @@
 
 
 
-<div class="container">
-    <div class="col">
-        <div class="card">
+    <div class="container">
+       <div class="container">
 
-            <div class="card-body">
-
-                <div class="row">
-                    <!--COLUMNA DE NOMBRE Y MARCA-->
-                    <div class="col-sm">
-                        <h5 class="card-title">@Model.NombreProducto</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Marca @Model.Marca</h6>
-                    </div>
-                    <!--COLUMNA DE PRECIO-->
-                    <div class="col-sm">
-                        <h5 class="card-title">$@Model.PrecioVenta</h5>
-                    </div>
-                    <!--COLUMNA DE NUMERO-->
-                    <div class="col-sm">
-                        <div class="centerBlock">
-                        <div class="cart_quantity_button">
-                            <input class="cart_quantity_input" id="@("inputAddCartItem_Q_"+@Model.id)" style="text-align:center; max-width:50%;"type="number" size="2" value="1" required>
-                        </div>
-                        </div>
-                    </div>
+            <div class="row align-items-center" style="margin-bottom:20px">
+                <div class="col">
+                    <h5 class="card-title">@Model.NombreProducto</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Marca @Model.Marca</h6>
+                    <p class="card-text">@Model.Descripcion</p>
                 </div>
-                <!--DESCRIPCION DEL PRODUCTO-->
-                <p class="card-text">@Model.Descripcion</p>
-            </div>
+                <div class="col">
+                    <h5 class="card-title" stlyle="margin: 20px">$@Model.PrecioVenta</h5>
+                </div>
+                <div class="col">
+                    <input class="cart_quantity_input" style="max-inline-size: 40px !important; text-align: center;" id="@("inputAddCartItem_Q_"+@Model.id)" style="text-align:center; max-width:50%;" type="number" size="2" value="1" required>
 
+                </div>
+            </div>
+               
         </div>
-    </div>
-    <div class="card-body">
-        <div class="col">
+        
+        <div class="container" style="margin:20px;">
             <center>
                 <button class="btn btn-primary"
                         id="product-btn"
@@ -49,11 +37,7 @@
                 </button>
             </center>
         </div>
-    </div>
-    
-    
-</div>
+     
 
-    
-   
+    </div>
 
