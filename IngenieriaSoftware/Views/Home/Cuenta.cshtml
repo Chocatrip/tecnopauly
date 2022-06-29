@@ -1,13 +1,29 @@
-﻿@using IngenieriaSoftware.Views.Shared.Components.ProductModal
-@using IngenieriaSoftware.Views.Shared.Components.EditarModal
+﻿@model IngenieriaSoftware.Models.EditarCuentaModel
 
-@{ ViewData["Title"] = "Home Page";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
+@{ ViewData["Title"] = "Cuenta";
+   var session = ViewBag.Session;
+    if (session != 3)
+    {
+        if (session == 0)
+        {
+            Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+        }
+        else if (session == 1)
+        {
+            Layout = "~/Views/Shared/_LayoutUser.cshtml";
+        }
+
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }   
+}
 
 
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.23/b-1.6.5/fc-3.3.2/sc-2.0.3/sb-1.0.1/sp-1.2.2/sl-1.3.1/datatables.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="~/js/TablaProductos/editar-producto.js"></script>
+<script src="~/js/EditarCuenta/EditarCuenta.js"></script>
 
 <div class="cart_section">
     <div class="container">
@@ -27,73 +43,73 @@
 
         <div class="cart_top">
             <div class="cont-fluid">
-                <div class="cart_top_letter" style="padding-bottom:0px">
-                    <form>
+                <div id="editar-cuenta-form-wrapper" class="ibox-content cart_top_letter" style="padding-bottom:0px">
+                    <div class="sk-spinner sk-spinner-cube-grid">
+                        <div class="sk-cube"></div>
+                        <div class="sk-cube"></div>
+                        <div class="sk-cube"></div>
+                        <div class="sk-cube"></div>
+                        <div class="sk-cube"></div>
+                        <div class="sk-cube"></div>
+                        <div class="sk-cube"></div>
+                        <div class="sk-cube"></div>
+                        <div class="sk-cube"></div>
+                    </div>
+                    <form
+                        asp-controller="Home"
+                        asp-action="EditarCuenta"
+                        method="post"
+                        role="form"
+                        id="editar-cuenta-form"
+                        onkeydown="pnPreventSubmitOnEnter(event)"
+                        data-ajax="true"
+                        data-ajax-begin="editarCuentaBegin()"
+                        data-ajax-success="editarCuentaSuccess()"
+                        data-ajax-failure="editarCuentaFailure()"
+                    >
+                    <input type="hidden" asp-for=IdUsuario value=@Model.IdUsuario />
                         <div class="form-group row">
                             <label for="inputName3" class="col-sm-2 col-form-label">Nombre</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputName3" value="Cosme Fulanito">
+                                <input asp-for="Nombre" type="text" class="form-control" id="inputName3" value="@Model.Nombre">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputUser3" class="col-sm-2 col-form-label">Usuario</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputUser3" value="cosmefulano">
+                                <input asp-for="Username" type="text" class="form-control" id="inputUser3" value="@Model.Username">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail3" value="cosmefulanito@gmail.com">
+                                <input asp-for="Email" type="email" class="form-control" id="inputEmail3" value="@Model.Email">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPasswordOld3" class="col-sm-2 col-form-label">Password actual</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPasswordOld3" placeholder="Password actual">
+                                <input asp-for="CurrentPass" type="password" class="form-control" id="inputPasswordOld3" placeholder="Password actual">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPasswordNew3" class="col-sm-2 col-form-label">Password nueva</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPasswordNew3" placeholder="Password nueva">
+                                <input asp-for="NewPass" type="password" class="form-control" id="inputPasswordNew3" placeholder="Password nueva">
                             </div>
                         </div>
                         <div class="container">
                             <div class="form-group row justify-content-center">
                                 <div class="col-md-auto">
-                                    <button type="submit" class="btn btn-primary">Realizar cambios</button>
+                                    <button
+                                    id="editar-cuenta-form-btn"
+                                    type="submit"
+                                    class="btn btn-primary"
+                                    >Realizar cambios</button>
                                 </div>
                             </div>
                         </div>
                     </form>
-                    <!---<form>
-                <input type="text" placeholder="Nombreasd"><br>
-                <input type="text" placeholder="Usuario">
-                <input type="password" placeholder="Correo electrónico">
-                <input type="password" placeholder="Contraseña">
-            </form>
-            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal" style="color:white;">
-                Editar mis datos
-            </a>
-             INICIO MODAL
-            <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="addProductModalLabel">Editar mis datos/h5>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true" style="color: #F216CE">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-
-                            <div class="dropdown-divider"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             FIN MODAL -->
 
                 </div>
             </div>

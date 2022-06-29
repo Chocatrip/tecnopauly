@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using IngenieriaSoftware.Data;
 
@@ -48,7 +49,7 @@ namespace IngenieriaSoftware.Controllers
             model.Datos = datos;
             return View(model);
         }
-        
+
         public IActionResult Privacy()
         {
             return View();
@@ -65,7 +66,7 @@ namespace IngenieriaSoftware.Controllers
         }
         public IActionResult Productos()
         {
-           var session = (Request.Cookies["userInfo"] ?? "").ToString();
+            var session = (Request.Cookies["userInfo"] ?? "").ToString();
 
             if (!String.IsNullOrEmpty(session))
             {
@@ -104,7 +105,7 @@ namespace IngenieriaSoftware.Controllers
                 PrecioCosto = p.precio_costo,
                 PrecioVenta = p.precio_venta
             }).ToArray();
-            
+
 
             var model = new Models.TablaModel();
             model.Datos = datos;
@@ -144,8 +145,81 @@ namespace IngenieriaSoftware.Controllers
 
         public IActionResult Cuenta()
         {
-            return View();
+            var session = (Request.Cookies["userInfo"] ?? "").ToString();
+            var IdUsuarioString = Request.Cookies["userId"].ToString();
+            var IdUsuario = Int32.Parse(IdUsuarioString);
+            if (!String.IsNullOrEmpty(session))
+            {
+                ViewBag.Session = Int32.Parse(session);
+            }
+            else
+            {
+                ViewBag.Session = 3;
+            }
+
+            var model = new Models.EditarCuentaModel();
+
+            var userQuery = context.usuario.Where(u => u.id_usuario == IdUsuario).FirstOrDefault();
+            var cuentaQuery = context.cuenta.Where(c => c.id_usuario == IdUsuario).FirstOrDefault();
+
+            model.IdUsuario = IdUsuario;
+            model.Nombre = userQuery.nombre;
+            model.Email = userQuery.correo;
+            model.Username = cuentaQuery.username;
+            model.CurrentPass = "";
+            model.NewPass = "";
+            return View(model);
         }
+        public async Task<ActionResult> EditarCuenta([FromForm] IngenieriaSoftware.Models.EditarCuentaModel model)
+        {
+            if (String.IsNullOrEmpty(model.Nombre) || String.IsNullOrEmpty(model.Username) || String.IsNullOrEmpty(model.Email) || String.IsNullOrEmpty(model.CurrentPass) || String.IsNullOrEmpty(model.NewPass)) {
+                CookieOptions optionsError = new CookieOptions();
+                optionsError.Expires = DateTime.Now.AddSeconds(3);
+                Response.Cookies.Append("errorEditarCuenta", "No-se-permiten-formularios-en-blanco.", optionsError);
+                return StatusCode(StatusCodes.Status400BadRequest);
+            }
+            var idUsuario = model.IdUsuario;
+            var nombre = model.Nombre.Trim().ToLower();
+            var correo = model.Email.Trim().ToLower();
+            var username = model.Username.Trim().ToLower();
+            var currentPass = model.CurrentPass.Trim().ToLower();
+            var newPass = model.NewPass.Trim().ToLower();
+
+            var queryCuenta = context.cuenta;
+            var queryUsuario = context.usuario;
+            if (queryCuenta.Where(c => String.Equals(c.username, username) && c.id_usuario!=idUsuario).Any())
+            {
+                CookieOptions optionsError = new CookieOptions();
+                optionsError.Expires = DateTime.Now.AddSeconds(5);
+                Response.Cookies.Append("errorEditarCuenta", "Ya-existe-un-usuario-con-ese-nombre-de-usuario.", optionsError);
+                return StatusCode(StatusCodes.Status400BadRequest);
+            }
+            if (!String.Equals(queryCuenta.Where(c => c.id_usuario == idUsuario).Select(c => c.pass).FirstOrDefault(), currentPass)) {
+                CookieOptions optionsError = new CookieOptions();
+                optionsError.Expires = DateTime.Now.AddSeconds(5);
+                Response.Cookies.Append("errorEditarCuenta", "Contrasena-actual-no-corresponde-a-la-ingresada.", optionsError);
+                return StatusCode(StatusCodes.Status400BadRequest);
+            }
+
+            if (newPass.Length < 8 || newPass.Length > 20)
+            {
+                CookieOptions optionsError = new CookieOptions();
+                optionsError.Expires = DateTime.Now.AddSeconds(5);
+                Response.Cookies.Append("errorEditarCuenta", "Ingrese-una-contrasena-entre-8-y-20-caracteres.", optionsError);
+                return StatusCode(StatusCodes.Status400BadRequest);
+            }
+
+            var usuarioACambiar = context.usuario.Where(u => u.id_usuario == model.IdUsuario).FirstOrDefault();
+            var cuentaACambiar = context.cuenta.Where(c => c.id_usuario == model.IdUsuario).FirstOrDefault();
+
+            usuarioACambiar.nombre = nombre;
+            usuarioACambiar.correo = correo;
+            cuentaACambiar.username = username;
+            cuentaACambiar.pass = newPass;
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+
 
         public IActionResult CarritoCompra()
         {
