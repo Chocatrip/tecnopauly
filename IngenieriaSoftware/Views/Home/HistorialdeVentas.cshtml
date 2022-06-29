@@ -1,4 +1,4 @@
-﻿
+﻿@model IngenieriaSoftware.Controllers.HomeController.HistorialdeVentasModelWrapper
 @{ ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
 
@@ -57,14 +57,18 @@
                                 </thead>
                                 <tbody>
                                     <!-- aca se inicia el for para recorrer datos -->
-                                        <tr>
-                                            <td></td>
-                                            <td><!-- aca van los datos --><!--ID Venta--></td>
-                                            <td><!--Productos--></td>
-                                            <td><!--Total--></td>
-                                            <td><!--Fecha ingreso venta--></td>
-                                            <td><!--Fecha venta--></td>
-                                     </tr>
+                                    @for(int i = 0; i < Model.ventasHistorial.Length; i++)
+                                    {
+                                       <tr>
+                                            <td>@(i+1)</td>
+                                            <td>@Model.ventasHistorial[i].idVenta</td>
+                                            <td>@Model.ventasHistorial[i].productos</td>
+                                            <td>$@Model.ventasHistorial[i].Total</td>
+                                            <td>@Model.ventasHistorial[i].fechaIngreso</td>
+                                            <td>@Model.ventasHistorial[i].fechaVenta</td>
+                                     </tr> 
+                                    }
+                                        
                                 </tbody>
                             </table>
                         </div>

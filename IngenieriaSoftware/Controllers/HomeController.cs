@@ -112,10 +112,45 @@ namespace IngenieriaSoftware.Controllers
 
             return View(model);
         }
+        public class HistorialdeVentasModelWrapper {
+            public HistorialdeVentasModel[] ventasHistorial { get; set; }
+        }
+        public class HistorialdeVentasModel  {
+            public int idVenta { get; set; }
+            public int Total { get; set; }
+            public DateTime fechaIngreso { get; set; }
+            public DateTime fechaVenta { get; set; }
+            public string productos { get; set; }
+        }
         public IActionResult HistorialdeVentas()
         {
+            var model = new HistorialdeVentasModelWrapper();
+            var ventas = context.id_ventas
+                .Where(v => v.venta_concretada == 1).ToArray();
 
-            return View();
+            HistorialdeVentasModel[] ventasMostrar = new HistorialdeVentasModel[ventas.Length];
+
+
+            for (int i = 0; i < ventasMostrar.Length; i++) {
+                var newItem = new HistorialdeVentasModel();
+                var itemenTabla = context.ventas.Where(v => v.id_venta == ventas[i].id_venta).ToArray();
+                newItem.idVenta = ventas[i].id_venta;
+                string productos = "";
+                var total = 0;
+                for (int j = 0; j < itemenTabla.Length; j++) {
+                    total = total + (itemenTabla[j].precio_venta * itemenTabla[j].q_prod);
+                    productos = productos + itemenTabla[j].nombre_prod +"x" +itemenTabla[j].q_prod.ToString() + ",";
+                }
+                newItem.Total = total;
+                newItem.productos = productos;
+                newItem.fechaIngreso = ventas[i].fecha_ingreso_venta;
+                newItem.fechaVenta = ventas[i].fecha_venta;
+                
+                ventasMostrar[i] = newItem;
+            }
+
+            model.ventasHistorial = ventasMostrar;
+            return View(model);
         }
         public IActionResult Cotizaciones()
         {
