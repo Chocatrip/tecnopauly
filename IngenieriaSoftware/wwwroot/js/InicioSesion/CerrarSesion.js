@@ -10,6 +10,7 @@
         text: 'Gracias por utilizar nuestra página!'
     })
     document.cookie = "userInfo= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+    document.cookie = "userId= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
     await sleep(2000)
     var url = element.dataset.urlindex;
     location.href = url;

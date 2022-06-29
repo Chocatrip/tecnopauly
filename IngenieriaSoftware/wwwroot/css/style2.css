@@ -5285,3 +5285,22 @@ body.md-skin {
     font-family: 'Poppins', sans-serif;
 
 }
+.slider_section .carousel_btn_box .carousel-control-prev, .slider_section .carousel_btn_box .carousel-control-next {
+    display: flex;
+    vertical-align: bottom;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 50px;
+    height: 50%;
+    background-color: transparent;
+    color: black;
+    opacity: 1;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    font-size: 18px;
+}
+
+.slider_section .carousel_btn_box {
+    top: 35%;
+    height:50%;
+}

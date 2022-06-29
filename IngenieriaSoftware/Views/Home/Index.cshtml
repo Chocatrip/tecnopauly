@@ -1,4 +1,5 @@
 ﻿@using IngenieriaSoftware.Views.Shared.Components.ProductModal
+@using IngenieriaSoftware.Views.Shared.Components.AgregarProductoCarrito
 @model TablaModel
 
 @{
@@ -23,7 +24,7 @@
     var data = Model.Datos;
 
 }
-
+<script src="~/js/CarritoCompra/AgregarCarrito.js"></script>
 <!-- slider section -->
 <section class="slider_section ">
     <div id="customCarousel1" class="carousel slide" data-ride="carousel">
@@ -132,11 +133,32 @@
                     <div class="box">
                         <div class="img-box">
                             <img src="images/pesacocina.png" alt="">
-                            <a href="" class="add_cart_btn">
-                                <span>
-                                    Agregar al Carrito
-                                </span>
-                            </a>
+                            <a class="add_cart_btn" data-bs-toggle="modal" data-bs-target="@("#addCartItem_"+@data[i].id)" style="color:white;">
+                                                Agregar al carrito
+                                            </a>
+                                            <div class="modal fade" id="@("addCartItem_"+@data[i].id)" tabindex="-1" aria-labelledby="addCartModal" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="addProductModalLabel">Agregar @data[i].NombreProducto</h5>
+                                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true" style="color: #F216CE">×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            @await Component.InvokeAsync(nameof(AgregarProductoCarrito),new{
+                                                                    id = data[i].id, 
+                                                                    NombreProducto = data[i].NombreProducto, 
+                                                                    Descripcion = data[i].Descripcion,
+                                                                    Marca = data[i].Marca,
+                                                                    PrecioVenta = data[i].PrecioVenta
+                                                                })
+                                                                <p id="error"></p>
+                                                            <div class="dropdown-divider"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                         </div>
                         <div class="detail-box">
                             <h5>
