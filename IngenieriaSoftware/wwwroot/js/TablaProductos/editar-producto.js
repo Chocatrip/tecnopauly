@@ -5,14 +5,7 @@
 async function editarsuccess() {
     console.log(">>editarSuccess()")
     $('#editar-productos-tab-form').removeClass('sk-loading')
-    Swal.fire({
-        customClass: {
-            container: 'my-swal'
-        },
-        icon: 'success',
-        title: 'Producto Editado',
-        text: 'Se recargará la página en instantes'
-    })
+    c
     await sleep(2000)
     window.location.reload()
 }

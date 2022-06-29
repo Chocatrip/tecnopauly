@@ -259,6 +259,57 @@ namespace IngenieriaSoftware.Controllers
             return View(model);
         }
 
+        public IActionResult Venta() {
+            var ventaActiva = context.id_ventas.Where(iv => iv.venta_concretada == 0).FirstOrDefault();
+
+            if (ventaActiva == null) {
+                var emptyModel = new Models.VentaDetalleModel();
+                return View(emptyModel);
+            }
+            var itemsDetalle = context.ventas.Where(v => v.id_venta == ventaActiva.id_venta).ToArray();
+
+            var model = new Models.VentaDetalleModel();
+
+            Models.VentaDetalleItem[] itemsArray = new VentaDetalleItem[itemsDetalle.Length]; 
+            var total_precio = 0;
+            var total_invertido = 0;
+
+            
+            for (int i = 0; i < itemsDetalle.Length; i++) {
+                var item = new Models.VentaDetalleItem
+                {
+                    id_producto = itemsDetalle[i].id_producto,
+                    nombre_prod = itemsDetalle[i].nombre_prod,
+                    cod_prod = itemsDetalle[i].cod_prod,
+                    q_prod = itemsDetalle[i].q_prod,
+                    stockDisponible = context.producto.Where(p => p.id == itemsDetalle[i].id_producto).Select(p => p.stock).FirstOrDefault(),
+                    precio_inversion = itemsDetalle[i].precio_inversion,
+                    precio_venta = itemsDetalle[i].precio_venta
+                };
+
+                int checkVenta = 1;
+                if (item.stockDisponible < item.q_prod) {
+                    checkVenta = 0;
+                }
+                item.checkVenta = checkVenta;
+                total_precio += itemsDetalle[i].q_prod * itemsDetalle[i].precio_venta;
+                total_invertido += itemsDetalle[i].q_prod * itemsDetalle[i].precio_inversion;
+                itemsArray[i] = item;
+
+                
+            }
+            model.id_venta = ventaActiva.id_venta;
+            model.id_cliente = itemsDetalle[0].id_cliente;
+            model.fecha_ingreso_venta = ventaActiva.fecha_ingreso_venta;
+            model.total_precio = total_precio;
+            model.total_ganancia = total_precio - total_invertido;
+
+            model.itemsVenta = itemsArray;
+
+            return View(model);
+        }
+        
+
         public IActionResult PruebaGuardarCotizacion() {
             var cotizacion = context.carrito.Where(car=> car.id_cuenta==1).FirstOrDefault();
             return Ok(cotizacion);

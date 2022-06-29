@@ -1,5 +1,6 @@
 ﻿@using IngenieriaSoftware.Views.Shared.Components.ProductModal
 @using IngenieriaSoftware.Views.Shared.Components.EditarModal
+@using IngenieriaSoftware.Views.Shared.Components.AgregarProductoVenta
 @model TablaModel
 
 @{ var data = Model.Datos; }
@@ -11,7 +12,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.23/b-1.6.5/fc-3.3.2/sc-2.0.3/sb-1.0.1/sp-1.2.2/sl-1.3.1/datatables.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 <script src="~/js/TablaProductos/editar-producto.js"></script>
-
+<script src="~/js/TablaProductos/AgregarProductoVenta.js"></script>
 <div class="table_section">
 
     <div class="table_top">
@@ -58,51 +59,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!--<div class="card">
-                                <div class="card-title">
-                                    <h2>  Ingresar Producto</h2>
-                                </div>
-                                <div class="form-group row ml-3">
-                                    <form asp-controller="Ingresar"
-                                          asp-action="IngresarProducto"
-                                          method="post"
-                                          class="form-row"
-                                          role="form"
-                                          id="ingresar-producto-form"
-                                          onkeydown="pnPreventSubmitOnEnter(event)"
-                                          data-ajax="true">
-                                        <label class="mr-2 col-12">
-                                            Nombre Producto
-                                        </label><input asp-for="NombreProducto" />
-                                        <label class="mr-2 col-12">
-                                            Categoría
-                                        </label><input asp-for="Categoria" />
-                                        <label class="mr-2 col-12">
-                                            Descripción
-                                        </label><input asp-for="Descripcion" />
-                                        <label class="mr-2 col-12">
-                                            Código
-                                        </label><input asp-for="Codigo" />
-                                        <label class="mr-2 col-12">
-                                            Precio de costo $
-                                        </label><input asp-for="PrecioCosto" />
-                                        <label class="mr-2 col-12">
-                                            Precio de venta $
-                                        </label><input asp-for="PrecioVenta" />
-                                        <button id="ingresar-producto-btn"
-                                                style="width:700px"
-                                                class="btn btn-primary btn-sm ml-4 col-12"
-                                                type="submit"
-                                                title="Ingresar-Producto">
-                                            Agregar Nuevo Producto
-                                        </button>
-                                    </form>
-                                </div>
-
-
-
-                            </div>-->
+                            </div>            
                             <span matripple="" class="mat-ripple mat-button-ripple"></span>
                             <span class="mat-button-focus-overlay"></span>
                             </button>
@@ -121,6 +78,7 @@
                                         <th>Precio Costo</th>
                                         <th>Precio Venta</th>
                                         <th>Acción</th>
+                                        <th>Acción</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -138,11 +96,41 @@
                                             <td>$@data[i].PrecioCosto</td>
                                             <td>$@data[i].PrecioVenta</td>
                                             <td>
-                                                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal@(i)" style="color:white;">
-                                                    Editar
+                                                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarVentaModal@(i)" style="color:white;">
+                                                    Agregar a Venta
                                                 </a>
 
                                                 <!-- Modal -->
+                                                <div class="modal fade" id="agregarVentaModal@(i)" tabindex="-1" aria-labelledby="agregarVentaModalLabel@(i)" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="agregarVentaModalLabel@(i)">Agregar a venta @data[i].NombreProducto</h5>
+                                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true" style="color: #F216CE">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                @await Component.InvokeAsync(nameof(AgregarProductoVenta), new{
+                                                                    IdProducto = data[i].id,
+                                                                    NombreProducto = data[i].NombreProducto,
+                                                                    Codigo = data[i].Codigo,
+                                                                    Marca = data[i].Marca,
+                                                                    Stock = data[i].Stock,
+                                                                    PrecioVenta = data[i].PrecioVenta
+                                                                })
+                                                                <p id="error"></p>
+                                                                   
+                                                                <div class="dropdown-divider"></div>  
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarVentaModal@(i)" style="color:white;">
+                                                    Editar
+                                                </a>
                                                 <div class="modal fade" id="editModal@(i)" tabindex="-1" aria-labelledby="editModalLabel@(i)" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">

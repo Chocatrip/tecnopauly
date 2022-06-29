@@ -18,7 +18,8 @@ namespace IngenieriaSoftware.Views.Shared.Components.ProductModal
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var model = new Models.TablaModel();
+            return View(model);
         }
 
     }

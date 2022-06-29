@@ -1,69 +1,164 @@
-﻿@using IngenieriaSoftware.Views.Shared.Components.ProductModal
-@using IngenieriaSoftware.Views.Shared.Components.EditarModal
+﻿@model IngenieriaSoftware.Models.VentaDetalleModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ 
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; 
+}
 
-@{ ViewData["Title"] = "Home Page";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
 
+<script src="~/js/TablaProductos/ImportarCotizacion.js"></script>
+<script src="~/js/TablaProductos/ConcretarVenta.js"></script>
+<script src="~/js/TablaProductos/EliminarProductoVenta.js"></script>
+<div id="tabla-venta-cotizacion" class="ibox-content cart_section">
 
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.23/b-1.6.5/fc-3.3.2/sc-2.0.3/sb-1.0.1/sp-1.2.2/sl-1.3.1/datatables.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
-<script src="~/js/TablaProductos/editar-producto.js"></script>
-
-<div class="table_section">
-
-    <div class="table_top">
-        <div class="container-fluid">
-            <div class="table_top_letter">
+    <div class="sk-spinner sk-spinner-cube-grid">
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                    </div>
+    <div class="cart_top">
+        <div class="cont-fluid">
+            <div class="cart_top_letter">
                 <div class="">
-                    <h5 class="">Tu Cuenta</h5>
+                    <h5 class="">Carrito de venta</h5>
                 </div>
             </div>
         </div>
     </div>
     <hr>
+    <div class="cart_top">
+        <div class="cont-fluid">
+            <div class="cart_top_letter">
+                <a 
+                class="btn btn-primary"  
+                style="color:white;"
+                onclick="importarCotizacion()"
+                >
+                                Importar venta desde cotizacion
+                </a>
+                <input id="importar-cotizacion-venta" type="number"/>
+                <table class="table table-sm table_section">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre Producto</th>
+                            <th>Codigo Producto</th>
+                            <th>Precio Inversion</th>
+                            <th>Precio Venta</th>
+                            <th>Stock Disponible</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.itemsVenta==null)
+                        {
+                            <tr><td valign="top" colspan="5"><span class="font-italic">Carrito de ventas vacío</span></td></tr>
+                        }
+                        else
+                        {
+                            @for(int i = 0; i< Model.itemsVenta.Length; i++)
+                            {
+                                @if (Model.itemsVenta[i].checkVenta == 0)
+                                {
+                                    <tr style="background-color:#fc4747">
+                                        <th>@(i+1)</th>
+                                        <th>@Model.itemsVenta[i].nombre_prod</th>
+                                        <th>@Model.itemsVenta[i].cod_prod</th>
+                                        <th>$@Model.itemsVenta[i].precio_inversion</th>
+                                        <th>$@Model.itemsVenta[i].precio_venta</th>
+                                        <th>@Model.itemsVenta[i].stockDisponible</th>
+                                        <th>@Model.itemsVenta[i].q_prod</th>
+                                        <th>$@(Model.itemsVenta[i].precio_venta*Model.itemsVenta[i].q_prod)</th>
+                                        <th>
+                                            <a 
+                                                class="btn btn-dark"  
+                                                style="color:white;"
+                                                data-idproducto="@Model.itemsVenta[i].id_producto"
+                                                onclick="eliminarProductoVenta(this)"
+                                             >
+                                            Eliminar
+                                        </a>
+                                        </th>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <th>@(i+1)</th>
+                                        <th>@Model.itemsVenta[i].nombre_prod</th>
+                                        <th>@Model.itemsVenta[i].cod_prod</th>
+                                        <th>$@Model.itemsVenta[i].precio_inversion</th>
+                                        <th>$@Model.itemsVenta[i].precio_venta</th>
+                                        <th>@Model.itemsVenta[i].stockDisponible</th>
+                                        <th>@Model.itemsVenta[i].q_prod</th>
+                                        <th>$@(Model.itemsVenta[i].precio_venta*Model.itemsVenta[i].q_prod)</th>
+                                        <th>
+                                            <a 
+                                                class="btn btn-dark"  
+                                                style="color:white;"
+                                                data-idproducto="@Model.itemsVenta[i].id_producto"
+                                                onclick="eliminarProductoVenta(this)"
+                                             >
+                                            Eliminar
+                                        </a>
+                                        </th>
+                                    </tr>
+                                }
 
-        <div class="container">
+                            }
+                        }
+                       
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+            @if (Model.itemsVenta != null)
+            {
+                <div class="cart_top_letter">
+                <div class="cart_top_letter">
+                    <div class="row justify-content-end" >
+                        <div class="col-md-4 offset-md-4" style="text-align:end; margin-right: 30px">
+                            <h3>Total Ganancia: $@Model.total_ganancia</h3>
+                        </div>
+                        <div class="col-md-4 offset-md-4" style="text-align:end; margin-right: 30px">
+                            <h3>Total Venta: $@Model.total_precio</h3>
+                        </div>
+                    </div>
+                    <div class="cart_top_letter">
+                        <div class="row justify-content-end" style="text-align:end">
+                            <div class="col-4 text_section">
 
-            <div class="shopper-informations">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="shopper-info">
-                            <form>
-                                <input type="text" placeholder="Nombre">
-                                <input type="text" placeholder="Usuario">
-                                <input type="password" placeholder="Correo electrónico">
-                                <input type="password" placeholder="Contraseña">
-                            </form>
-                            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal" style="color:white;">
-                                Editar mis datos
-                            </a>
-                            <!-- INICIO MODAL -->
-                            <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="addProductModalLabel">Editar mis datos/h5>
-                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true" style="color: #F216CE">×</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                     
-                                            <div class="dropdown-divider"></div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                            <!-- FIN MODAL -->
+
+                                @if (Model.itemsVenta.Any(iv => iv.checkVenta == 0))
+                                {
+                                    <h1>Productos fuera de stock en la lista</h1>
+                                }else{
+                                    <div class="col-md-3 offset-md-3">
+                                    <a class="btn btn-primary"
+                                   style="color:white;"
+                                   data-idventa="@Model.id_venta"
+                                   onclick="concretarVenta(this)">
+                                    Concretar venta
+                                </a>
+                                </div>
+                                }
+                                
+                            
                         </div>
                     </div>
                 </div>
             </div>
-
+            }
         </div>
-        <hr>
-    </section>
-
+    </div>
 </div>
-
-

@@ -48,6 +48,115 @@ namespace IngenieriaSoftware.Controllers.Api
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+        [Route("concretar-venta/{idVenta}/")]
+        public async Task<IActionResult> ConcretarVenta(int idVenta)
+        {
+            try
+            {
+                var ventaACambiar = context.id_ventas.Where(iv => iv.id_venta == idVenta).FirstOrDefault();
+                ventaACambiar.venta_concretada = 1;
+                ventaACambiar.fecha_venta = DateTime.Now;
+                await context.SaveChangesAsync();
+
+                var productosACambiarStock = context.ventas.Where(v => v.id_venta == idVenta).ToArray();
+                for (int i = 0; i < productosACambiarStock.Length; i++) {
+                    var productoACambiar = context.producto.Where(p => p.id == productosACambiarStock[i].id_producto).FirstOrDefault();
+                    var stockComprado = context.ventas.Where(v => v.id_venta == idVenta && v.id_producto == productosACambiarStock[i].id_producto).Select(v => v.q_prod).FirstOrDefault();
+                    productoACambiar.stock = productoACambiar.stock - stockComprado;
+                    await context.SaveChangesAsync();
+                }
+                return Ok(idVenta);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+        [Route("eliminar-producto-venta/{idproducto}/")]
+        public async Task<IActionResult> EliminarProductoVenta(int idproducto)
+        {
+            try
+            {
+                var ventaIdACambiar = context.id_ventas.Where(v => v.venta_concretada == 0).FirstOrDefault();
+                var ventaACambiar = context.ventas.Where(v => v.id_venta == ventaIdACambiar.id_venta && v.id_producto == idproducto).FirstOrDefault();
+                context.ventas.Remove(ventaACambiar);
+                context.SaveChanges();
+
+                var checkProductos = context.ventas.Where(v => v.id_venta == ventaACambiar.id_venta).FirstOrDefault();
+                if (checkProductos == null) {
+                    var id_ventasEliminar = context.id_ventas.Where(iv => iv.id_venta == ventaACambiar.id_venta).FirstOrDefault();
+                    context.id_ventas.Remove(id_ventasEliminar);
+                    context.SaveChanges();
+                }
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        [Route("importar-cotizacion/{numeroCotizacion}/")]
+        public async Task<IActionResult> ImportarCotizacion(int numeroCotizacion)
+        {
+            try
+            {
+                var carritoaBuscar = context.carrito.Where(c => c.id_carrito == numeroCotizacion && c.activo == 0).FirstOrDefault();
+
+                if (carritoaBuscar == null) {
+                    CookieOptions optionsError = new CookieOptions();
+                    optionsError.Expires = DateTime.Now.AddSeconds(5);
+                    Response.Cookies.Append("errorImportarCotizacion", "Cotizacion-no-existe", optionsError);
+
+                    return StatusCode(StatusCodes.Status400BadRequest);
+                }
+                var productosImportar = context.carrito_detalle.Where(cd => cd.id_carrito == carritoaBuscar.id_carrito).ToArray();
+
+                var ventaActiva = context.id_ventas.Where(iv => iv.venta_concretada == 0).FirstOrDefault();
+                if (ventaActiva == null)
+                {
+                    var newVentaActiva = new Data.id_ventasClass
+                    {
+                        fecha_ingreso_venta = DateTime.Now,
+                        venta_concretada = 0,
+                    };
+                    await context.id_ventas.AddAsync(newVentaActiva);
+                    await context.SaveChangesAsync();
+                }
+
+                ventaActiva = context.id_ventas.Where(iv => iv.venta_concretada == 0).FirstOrDefault();
+
+                var productosExistentes = context.ventas.Where(v => v.id_venta == ventaActiva.id_venta).Select(v => v.id_producto).ToArray();
+                for (int i = 0; i < productosImportar.Length; i++) {
+                    if (productosExistentes.Contains(productosImportar[i].id_producto))
+                    {
+                        var productoModificar = context.ventas.Where(v => v.id_venta == ventaActiva.id_venta && v.id_producto == productosImportar[i].id_producto).FirstOrDefault();
+                        productoModificar.q_prod += productosImportar[i].q_producto;
+                        await context.SaveChangesAsync();
+                    }
+                    else {
+                        var newProductoVenta = new Data.ventasClass {
+                            id_venta = ventaActiva.id_venta,
+                            id_cliente = -1,
+                            id_producto = productosImportar[i].id_producto,
+                            nombre_prod = productosImportar[i].nombre_producto,
+                            cod_prod = productosImportar[i].cod_prod,
+                            q_prod = productosImportar[i].q_producto,
+                            precio_inversion = productosImportar[i].precio_inversion,
+                            precio_venta = productosImportar[i].precio_venta
+                        };
+                        await context.ventas.AddAsync(newProductoVenta);
+                        await context.SaveChangesAsync();
+                    }
+                }
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
         [Route("agregar-item-carrito/{idProducto}/{qProducto}")]
         public async Task<IActionResult> AgregarItemCarrito(int idProducto, int qProducto)
         {
@@ -113,5 +222,55 @@ namespace IngenieriaSoftware.Controllers.Api
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+        [Route("agregar-item-venta/{idProducto}/{qProducto}")]
+        public async Task<IActionResult> AgregarItemVenta(int idProducto, int qProducto)
+        {
+            try
+            {
+                var query = context.id_ventas;
+                var ventaActiva = query.Where(iv => iv.venta_concretada == 0).FirstOrDefault();
+                if (ventaActiva == null) {
+                    var newVentaActiva = new Data.id_ventasClass {
+                        fecha_ingreso_venta = DateTime.Now,
+                        venta_concretada = 0,
+                    };
+                    await context.id_ventas.AddAsync(newVentaActiva);
+                    await context.SaveChangesAsync();
+                }
+
+                ventaActiva = query.Where(iv => iv.venta_concretada == 0).FirstOrDefault();
+                
+                var productoVenta = context.producto.Where(p => p.id == idProducto).FirstOrDefault();
+                var ventaDetalle = new Data.ventasClass
+                {
+                    id_venta = ventaActiva.id_venta,
+                    id_cliente = -1,
+                    id_producto = productoVenta.id,
+                    nombre_prod = productoVenta.nombre_producto,
+                    cod_prod = productoVenta.codigo,
+                    q_prod = qProducto,
+                    precio_inversion = productoVenta.precio_costo,
+                    precio_venta = productoVenta.precio_venta
+                };
+
+                var ventaProductoExistQ = context.ventas.Where(v => v.id_venta == ventaActiva.id_venta && v.id_producto == productoVenta.id).FirstOrDefault();
+                
+                if (ventaProductoExistQ != null) {
+                    ventaProductoExistQ.q_prod += qProducto;
+                    await context.SaveChangesAsync();
+                    return Ok();
+                }
+
+                await context.ventas.AddAsync(ventaDetalle);
+                await context.SaveChangesAsync();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+
     }
 }

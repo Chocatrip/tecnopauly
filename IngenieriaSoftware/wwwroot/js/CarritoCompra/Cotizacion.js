@@ -23,5 +23,4 @@ async function handleGuardarCotizacionSuccess(successData, idCarrito) {
     }).then(function () {
         window.location.reload()
     });
-
 }

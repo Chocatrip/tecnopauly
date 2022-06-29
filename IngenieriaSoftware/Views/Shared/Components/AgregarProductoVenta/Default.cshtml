@@ -1,0 +1,58 @@
+﻿@model IngenieriaSoftware.Views.Shared.Components.AgregarProductoVenta.AgregarProductoVentaModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var divId =Model.IdProducto + "-agregar-venta-form";
+}
+
+<div class="container">
+
+<div class="ibox-content" style="border-color:white" id=@divId>
+    <div class="sk-spinner sk-spinner-cube-grid">
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                    </div>
+    <div class="col">
+        <div class="card">
+
+            <div class="row align-items-center" style="margin-bottom:20px">
+                <div class="col">
+                    <h5 class="card-title">@Model.NombreProducto</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Marca @Model.Marca</h6>
+                </div>
+                <div class="col">
+                    <h5 class="card-title" stlyle="margin: 20px">$@Model.PrecioVenta</h5>
+                </div>
+                <div class="col">
+                    <input class="cart_quantity_input" style="max-inline-size: 40px !important; text-align: center;" id="@("inputAddVentaItem_Q_"+@Model.IdProducto)" style="text-align:center; max-width:50%;" type="number" size="2" value="1" required>
+
+                </div>
+            </div>
+               
+        </div>
+        
+        <div class="container" style="margin:20px;">
+            <center>
+                <button class="btn btn-primary"
+                        id="product-btn"
+                        data-idproducto="@Model.IdProducto"
+                        onclick="agregarProductoVenta(this)"
+                        title="changeProduct">
+                    Agregar producto a Venta
+                </button>
+            </center>
+        </div>
+     
+
+    </div>
+    
+</div>    
+</div>
