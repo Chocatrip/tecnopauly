@@ -9,95 +9,98 @@
 <script src="~/js/site.js" asp-append-version="true"></script>
 <script src="~/js/TablaProductos/editar-producto.js"></script>
 
-<div class="table_section">
-
-    <div class="table_top">
-        <div class="container-fluid">
-            <div class="table_top_letter">
-                    <h5 class="">Tu Cuenta</h5>
+<div class="cart_section">
+    <div class="container">
+        <div class="cart_top">
+            <div class="cont-fluid">
+                <div class="cart_top_letter" style="padding-bottom:0px">
+                    <div class="">
+                        <h5 class="">Tu Cuenta</h5>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <hr>
 
-        <div class="container">
+    <div class="container">
 
-            <div class="shopper-informations">
-               <div class="shopper-info">
-                                       <form>
-                      <div class="form-group row">
-                        <label for="inputName3" class="col-sm-2 col-form-label">Nombre</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName3" value="Cosme Fulanito">
+        <div class="cart_top">
+            <div class="cont-fluid">
+                <div class="cart_top_letter" style="padding-bottom:0px">
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputName3" class="col-sm-2 col-form-label">Nombre</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputName3" value="Cosme Fulanito">
+                            </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="inputUser3" class="col-sm-2 col-form-label">Usuario</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputUser3" value="cosmefulano">
+                            </div>
                         </div>
-                       <div class="form-group row">
-                        <label for="inputUser3" class="col-sm-2 col-form-label">Usuario</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputUser3" value="cosmefulano">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3" value="cosmefulanito@gmail.com">
+                            </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="inputPasswordOld3" class="col-sm-2 col-form-label">Password actual</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPasswordOld3" placeholder="Password actual">
+                            </div>
                         </div>
-                    <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail3" value="cosmefulanito@gmail.com">
+                        <div class="form-group row">
+                            <label for="inputPasswordNew3" class="col-sm-2 col-form-label">Password nueva</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPasswordNew3" placeholder="Password nueva">
+                            </div>
                         </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputPasswordOld3" class="col-sm-2 col-form-label">Password actual</label>
-                        <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputPasswordOld3" placeholder="Password actual">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputPasswordNew3" class="col-sm-2 col-form-label">Password nueva</label>
-                        <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputPasswordNew3" placeholder="Password nueva">
-                        </div>
-                      </div>
-                      <div class="container">
-                      <div class="form-group row justify-content-center">
-                        <div class="col-md-auto">
-                          <button type="submit" class="btn btn-primary">Realizar cambios</button>
-                        </div>
-                      </div>
-                      </div>
-                    </form>
-                            <!---<form>
-                                <input type="text" placeholder="Nombreasd"><br>
-                                <input type="text" placeholder="Usuario">
-                                <input type="password" placeholder="Correo electrónico">
-                                <input type="password" placeholder="Contraseña">
-                            </form>
-                            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal" style="color:white;">
-                                Editar mis datos
-                            </a>
-                             INICIO MODAL
-                            <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="addProductModalLabel">Editar mis datos/h5>
-                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true" style="color: #F216CE">×</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                     
-                                            <div class="dropdown-divider"></div>
-                                        </div>
-                                    </div>
+                        <div class="container">
+                            <div class="form-group row justify-content-center">
+                                <div class="col-md-auto">
+                                    <button type="submit" class="btn btn-primary">Realizar cambios</button>
                                 </div>
                             </div>
-                             FIN MODAL -->
-                            
+                        </div>
+                    </form>
+                    <!---<form>
+                <input type="text" placeholder="Nombreasd"><br>
+                <input type="text" placeholder="Usuario">
+                <input type="password" placeholder="Correo electrónico">
+                <input type="password" placeholder="Contraseña">
+            </form>
+            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal" style="color:white;">
+                Editar mis datos
+            </a>
+             INICIO MODAL
+            <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addProductModalLabel">Editar mis datos/h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" style="color: #F216CE">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
+             FIN MODAL -->
 
+                </div>
+            </div>
         </div>
-        <hr>
-    </section>
-
+    </div>
+</section>
+<hr style="color:white">
 </div>
 
 
