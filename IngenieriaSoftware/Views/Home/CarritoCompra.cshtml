@@ -36,6 +36,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if (Model.Items==null)
+                        {
+                            <tr><td valign="top" colspan="5"><span class="font-italic">Carrito de compras vacío</span></td></tr>
+                        }
+                        else
+                        {
                         @for(int i = 0; i< Model.Items.Length; i++)
                         {
                             <tr>
@@ -51,11 +57,15 @@
                             </th>
                         </tr>
                         }
+                        }
+                       
                     </tbody>
                 </table>
             </div>
             <hr>
-            <div class="cart_top_letter">
+            @if (Model.Items != null)
+            {
+                <div class="cart_top_letter">
                 <div class="cart_top_letter">
                     <div class="row justify-content-end" >
 
@@ -71,8 +81,8 @@
                             <div class="col-md-3 offset-md-3">
                                 <a class="btn btn-primary"
                                    style="color:white;"
-                                   data-idcarrito="1"
-                                   data-idcliente="2"
+                                   data-idcarrito="@Model.IdCarrito"
+                                   data-idcliente="@Model.IdUsuario"
                                    onclick="guardarCotizacion(this)">
                                     Concretar cotización
                                 </a>
@@ -81,6 +91,7 @@
                     </div>
                 </div>
             </div>
+            }
         </div>
     </div>
 </div>

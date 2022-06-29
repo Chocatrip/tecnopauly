@@ -2,6 +2,8 @@
 {
     public class CarritoDetalleModel
     {
+        public int IdCarrito { get; set; }
+        public int IdUsuario { get; set; }
         public CarritoDetalleItem[] Items { get; set; }
         public int TotalPrecio { get; set; }
     }

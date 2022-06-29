@@ -15,6 +15,8 @@ namespace IngenieriaSoftware.Data
         public string nombre_producto { get; set; }
         public int precio_inversion { get; set; }
         public int precio_venta { get; set; }
+        public string cod_prod { get; set; }
+        public string imagen { get; set; }
         public int vendido { get; set; }
         public DateTime fecha_venta { get; set; }
 

@@ -91,6 +91,8 @@ namespace IngenieriaSoftware.Controllers.Api
                     precio_inversion = productoCarro.precio_costo,
                     precio_venta = productoCarro.precio_venta,
                     q_producto = qProducto,
+                    cod_prod = productoCarro.codigo,
+                    imagen = productoCarro.imagen,
                     vendido = 0
                 };
                 var carritoProductoExistQ = context.carrito_detalle

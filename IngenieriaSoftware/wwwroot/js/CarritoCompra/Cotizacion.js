@@ -18,7 +18,10 @@ async function handleGuardarCotizacionSuccess(successData, idCarrito) {
             container: 'my-swal'
         },
         icon: 'success',
-        title: 'Numero Cotizacion: '+ idCarrito,
+        title: 'Numero Cotizacion: ' + idCarrito,
         text: 'Por favor guarde este numero para solicitar su compra!'
-    })
+    }).then(function () {
+        window.location.reload()
+    });
+
 }
