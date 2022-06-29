@@ -1,4 +1,4 @@
-﻿
+﻿@model IngenieriaSoftware.Controllers.HomeController.CotizacionesModelWrapper
 @{ ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
 
@@ -56,15 +56,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- aca se inicia el for para recorrer datos -->
-                                        <tr>
-                                            <td></td>
-                                            <td><!-- aca van los datos --><!--ID Cuenta--></td>
-                                            <td><!--Carrito--></td>
-                                            <td><!--Productos--></td>
-                                            <td><!--Total--></td>
-                                            <td><!--Cotización Activa--></td>
-                                     </tr>
+                                    @for(int i =0; i < Model.itemsCotizaciones.Length; i++)
+                                    {
+                                     <tr>
+                                            <td>@(i+1)</td>
+                                            <td>@Model.itemsCotizaciones[i].idCuenta<!-- aca van los datos --><!--ID Cuenta--></td>
+                                            <td>@Model.itemsCotizaciones[i].idCarrito<!--Carrito--></td>
+                                            <td>@Model.itemsCotizaciones[i].Productos<!--Productos--></td>
+                                            <td>@Model.itemsCotizaciones[i].Total<!--Total--></td>
+                                            <td>@Model.itemsCotizaciones[i].cActiva<!--Cotización Activa--></td>
+                                     </tr>   
+                                    }
+                                    
                                 </tbody>
                             </table>
                         </div>

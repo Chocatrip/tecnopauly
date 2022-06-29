@@ -139,7 +139,7 @@ namespace IngenieriaSoftware.Controllers
                 var total = 0;
                 for (int j = 0; j < itemenTabla.Length; j++) {
                     total = total + (itemenTabla[j].precio_venta * itemenTabla[j].q_prod);
-                    productos = productos + itemenTabla[j].nombre_prod +"x" +itemenTabla[j].q_prod.ToString() + ",";
+                    productos = productos + itemenTabla[j].nombre_prod +" x " +itemenTabla[j].q_prod.ToString() + ", ";
                 }
                 newItem.Total = total;
                 newItem.productos = productos;
@@ -152,10 +152,57 @@ namespace IngenieriaSoftware.Controllers
             model.ventasHistorial = ventasMostrar;
             return View(model);
         }
+        public class CotizacionesModelWrapper {
+            public CotizacionesModel[] itemsCotizaciones { get; set; }
+        }
+        public class CotizacionesModel
+        {
+            public int idCuenta { get; set; }
+            public int idCarrito { get; set; }
+            public string Productos { get; set; }
+            public int Total { get; set; }
+            public string cActiva { get; set; }
+        }
         public IActionResult Cotizaciones()
         {
+            var model = new CotizacionesModelWrapper(); ;
 
-            return View();
+            var carritos = context.carrito.ToArray();
+            CotizacionesModel[] itemsenTabla = new CotizacionesModel[carritos.Length];
+            
+            var todosLosDatos = context.carrito_detalle.ToArray();
+            for (int i = 0; i < carritos.Length; i++) {
+
+                var idCuenta = carritos[i].id_cuenta;
+                var idCarrito = carritos[i].id_carrito;
+                var datosllamar = context.carrito_detalle.Where(cd=> cd.id_carrito == idCarrito).ToArray();
+
+                var Productos = "";
+                var Total = 0;
+                var cActiva = carritos[i].activo;
+                for (int j = 0; j < datosllamar.Length; j++) {
+                    Total = Total + (datosllamar[j].precio_venta*datosllamar[j].q_producto);
+                    Productos = Productos + datosllamar[j].nombre_producto + " x " + datosllamar[j].q_producto.ToString() + ", ";
+                }
+                var cActivaString = "";
+                if (cActiva == 0) {
+                    cActivaString = "Cotizada";
+                }else
+                {
+                    cActivaString = "En proceso de cotizacion";
+                }
+                var data = new CotizacionesModel
+                {
+                    idCuenta = idCuenta,
+                    idCarrito = idCarrito,
+                    Productos = Productos,
+                    Total = Total,
+                    cActiva = cActivaString
+                };
+                itemsenTabla[i] = data;
+            }
+            model.itemsCotizaciones = itemsenTabla;
+            return View(model);
         }
         public async Task<ActionResult> EditarProducto([FromForm] IngenieriaSoftware.Models.DatoTablaModel model) {
 
