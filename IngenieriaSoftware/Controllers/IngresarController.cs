@@ -29,6 +29,7 @@ namespace IngenieriaSoftware.Controllers
                 Response.Cookies.Append("errorIngresarProducto", "Ya-existe-un-producto-con-este-codigo.-Ingrese-un-codigo-distinto.", optionsError);
                 return StatusCode(StatusCodes.Status400BadRequest);
             }
+            var debug = model.imagePath;
 
             var newProducto = new IngenieriaSoftware.Data.productoClass() {
                 id = model.id,
@@ -39,7 +40,8 @@ namespace IngenieriaSoftware.Controllers
                 stock = model.Stock,
                 codigo = model.Codigo,
                 precio_costo = model.PrecioCosto,
-                precio_venta = model.PrecioVenta
+                precio_venta = model.PrecioVenta,
+                imagen = ""
             };
 
             using (var ts = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))

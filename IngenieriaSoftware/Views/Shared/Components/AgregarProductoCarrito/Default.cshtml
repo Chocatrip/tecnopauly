@@ -1,0 +1,25 @@
+﻿@model IngenieriaSoftware.Views.Shared.Components.AgregarProductoCarrito.AgregarProductoCarritoModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+<div>
+    <h1>@Model.id</h1>
+    <h1>@Model.NombreProducto</h1>
+    <h1>@Model.Marca</h1>
+    <h1>@Model.Descripcion</h1>
+    <h1>@Model.PrecioVenta</h1>
+    <input id ="@("inputAddCartItem_Q_"+@Model.id)" type="number" value="1" required>
+    <button class="btn btn-primary"
+     id="product-btn"
+     data-idproducto="@Model.id"
+     onclick="agregarProductoCarrito(this)"
+     title="changeProduct">
+        Guardar cambios
+     </button>
+</div>
+
+

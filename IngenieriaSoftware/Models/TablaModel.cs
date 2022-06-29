@@ -17,6 +17,7 @@ namespace IngenieriaSoftware.Models
         public int Stock { get; set; }
         public int PrecioCosto { get; set; }
         public int PrecioVenta { get; set; }
+        public string imagePath { get; set; }
     }
     public class DatoTablaModel {
         public int id { get; set; }
@@ -28,5 +29,6 @@ namespace IngenieriaSoftware.Models
         public int Stock { get; set; }
         public int PrecioCosto { get; set; }
         public int PrecioVenta { get; set; }
+        public string imagePath { get; set; }
     }
 }

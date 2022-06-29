@@ -16,5 +16,6 @@ namespace IngenieriaSoftware.Data
         public int stock { get; set; }
         public int precio_costo { get; set; }
         public int precio_venta { get; set; }
+        public string imagen { get; set; }
     }
 }
