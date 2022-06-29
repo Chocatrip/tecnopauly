@@ -4,7 +4,21 @@
     var idUsuario = check_cookie_name("userId")
     var idProducto = element.dataset.idproducto
     var idDiv = idProducto + '-agregar-carrito-form'
+    var cantidadProducto = document.getElementById('inputAddCartItem_Q_' + idProducto).value
     $(`#${idDiv}`).addClass('sk-loading')
+
+    if (cantidadProducto <= 0) {
+        Swal.fire({
+            customClass: {
+                container: 'my-swal'
+            },
+            icon: 'Error',
+            title: 'Cantidad de producto mínima.',
+            text: 'Por favor, ingrese una cantidad mayor o igual a 1 producto.'
+        })
+        $(`#${idDiv}`).removeClass('sk-loading')
+        return
+    }
 
     if (idUsuario == -1) {
         Swal.fire({
@@ -21,7 +35,7 @@
     }
 
     console.log("Id producto: " + idProducto)
-    var cantidadProducto = document.getElementById('inputAddCartItem_Q_' + idProducto).value
+    
 
     await fetch(`/api/agregar-item-carrito/${idProducto}/${cantidadProducto}`, {
         method: 'POST'
