@@ -222,4 +222,28 @@
     </div>
 </div>
 
-
+<script>
+window.addEventListener('load', function() {
+    var x = document.getElementById("tablaAdmin_filter");
+    var search = x.innerHTML;
+    console.log(search);
+    search = search.replace(/(>)(Search:)(<)/g,"$1Buscar:$3");
+    x.innerHTML = search;
+    x = document.getElementById("tablaAdmin_length");
+    var mostrar = x.innerHTML;
+    mostrar = mostrar.replace(/(>)(Show )(<)/g, "$1Mostrar $3");
+    mostrar = mostrar.replace(/(>)( entries)(<)/g, "$1 entradas$3");
+    x.innerHTML = mostrar;
+    x = document.getElementById("tablaAdmin_info")
+    var mostrando = x.innerHTML
+    mostrando = mostrando.replace(/()(Showing)()/g,"$1Mostrando$3");
+    mostrando = mostrando.replace(/()(to)()/g,"$1a$3");
+    mostrando = mostrando.replace(/()(of)()/g,"$1de$3");
+    mostrando = mostrando.replace(/()(entries)()/g,"$1entradas$3");
+    x.innerHTML = mostrando;
+    x = document.getElementById("tablaAdmin_previous")
+    x.innerHTML = x.innerHTML.replace(/()(Previous)()/g,"$1Anterior$3")
+    x = document.getElementById("tablaAdmin_next")
+    x.innerHTML = x.innerHTML.replace(/()(Next)()/g,"$1Siguiente$3")
+})
+</script>
