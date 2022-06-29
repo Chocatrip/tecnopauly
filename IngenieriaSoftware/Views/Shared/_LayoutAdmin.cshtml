@@ -64,7 +64,7 @@
                                     Celular : +569 40371752
                                 </span>
                             </a>
-                            <a href="">
+                            <a href="mailto:tecnopauly@gmail.com">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <span>
                                     Email : tecnopauly@gmail.com
@@ -192,22 +192,19 @@
                             </h5>
                             <ul>
                                 <li>
-                                    <a href="index.html">
+                                    <a asp-area="" asp-controller="Home" asp-action="">
                                         Inicio
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="product.html">
+                                    <a asp-area="" asp-controller="Home" asp-action="Productos">
                                         Productos
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="login.html">
-                                        Login
-                                    </a>
                                 </li>
                                 <li>
-                                    <a href="contact.html">
+                                    <a asp-area="" asp-controller="Home" asp-action="Contacto">
                                         Contacto
                                     </a>
                                 </li>
@@ -220,12 +217,21 @@
                                 Síguenos en nuestra redes sociales
                             </h5>
 
-                            <div class="social_box">
-                                <a href="">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                             <div class="social_box">
+                                <style>
+                                    #instagram:hover ,#facebook:hover{
+                                        -moz-transition: all .2s ease-in;
+                                        -o-transition: all .2s ease-in;
+                                        -webkit-transition: all .2s ease-in;
+                                        transition: all .2s ease-in;
+                                        color: #BC40B1; 
+                                    }
+                                </style>
+                                <a href="https://www.facebook.com/ventaspauly-102779991597552/">
+                                    <i class="fa fa-facebook" aria-hidden="true" id="facebook"></i>
                                 </a>
-                                <a href="">
-                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                <a href="https://www.instagram.com/tecnopauly/">
+                                    <i class="fa fa-instagram" aria-hidden="true" id="instagram"></i>
                                 </a>
 
                             </div>

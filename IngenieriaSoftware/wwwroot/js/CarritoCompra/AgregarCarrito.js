@@ -25,9 +25,9 @@
             customClass: {
                 container: 'my-swal'
             },
-            icon: 'info',
-            title: 'Por favor, ingrese sesion',
-            text: 'Para poder crear una cotizacion debe iniciar sesion.'
+            icon: 'warning',
+            title: 'Por favor, inicie sesión',
+            text: 'Para poder crear una cotizacion debe iniciar sesión.'
         })
         $(`#${idDiv}`).removeClass('sk-loading')
         $('.modal').modal('hide')
