@@ -58,7 +58,7 @@ namespace IngenieriaSoftware.Controllers
                 await context.usuario.AddAsync(newUsuario);
                 await context.SaveChangesAsync();
 
-                var idUsuario = context.usuario.Where(u => u.nombre == nombre).Select(u => u.id_usuario).FirstOrDefault();
+                var idUsuario = context.usuario.Max(u => u.id_usuario);
 
                 var newCuenta = new Data.cuentaClass
                 {
