@@ -112,7 +112,16 @@ namespace IngenieriaSoftware.Controllers
 
             return View(model);
         }
+        public IActionResult HistorialdeVentas()
+        {
 
+            return View();
+        }
+        public IActionResult Cotizaciones()
+        {
+
+            return View();
+        }
         public async Task<ActionResult> EditarProducto([FromForm] IngenieriaSoftware.Models.DatoTablaModel model) {
 
             var productoACambiar = context.producto.Where(p => p.id == model.id).FirstOrDefault();

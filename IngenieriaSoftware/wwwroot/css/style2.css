@@ -5304,3 +5304,10 @@ body.md-skin {
     top: 35%;
     height:50%;
 }
+#linkfooter:hover {
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    color: #BC40B1;
+}
