@@ -31,10 +31,11 @@ namespace IngenieriaSoftware.Controllers
                     if (query.Where(q => (String.Equals(q.username, model.user) && String.Equals(q.pass, model.password))).Any())
                     {
                         var tipocuenta = query.Where(q => String.Equals(q.username, model.user)).FirstOrDefault().tipocuenta;
+                        var idUsuario = query.Where(q => String.Equals(q.username, model.user)).FirstOrDefault().id_usuario;
                         CookieOptions options = new CookieOptions();
-                        options.Expires = DateTime.Now.AddHours(3);
+                        options.Expires = DateTime.Now.AddHours(24);
                         Response.Cookies.Append("userInfo", tipocuenta.ToString(), options);
-
+                        Response.Cookies.Append("userId", idUsuario.ToString(), options);
                     }
                     else
                     {

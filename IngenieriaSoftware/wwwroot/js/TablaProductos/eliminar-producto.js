@@ -19,6 +19,7 @@ async function handleEliminarProductoSuccess(successData, idProducto) {
 const eliminarProducto = async element => {
     console.log(">>eliminarProducto")
     $(`#${element.dataset.idproductodiv}`).addClass('sk-loading')
+
     var idProducto = element.dataset.idproducto
     console.log(element.dataset.idproducto)
     await fetch(`/api/eliminar-producto/${idProducto}`, {
