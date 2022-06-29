@@ -14,18 +14,20 @@
 
                 <div class="row">
                     <!--COLUMNA DE NOMBRE Y MARCA-->
-                    <div class="col">
+                    <div class="col-sm">
                         <h5 class="card-title">@Model.NombreProducto</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Marca @Model.Marca</h6>
                     </div>
                     <!--COLUMNA DE PRECIO-->
-                    <div class="col-md-3 ms-md-auto">
+                    <div class="col-sm">
                         <h5 class="card-title">$@Model.PrecioVenta</h5>
                     </div>
                     <!--COLUMNA DE NUMERO-->
-                    <div class="col-auto">
+                    <div class="col-sm">
+                        <div class="centerBlock">
                         <div class="cart_quantity_button">
-                            <input class="cart_quantity_input" id="@("inputAddCartItem_Q_"+@Model.id)" type="number" size="2" value="1" required>
+                            <input class="cart_quantity_input" id="@("inputAddCartItem_Q_"+@Model.id)" style="text-align:center; max-width:50%;"type="number" size="2" value="1" required>
+                        </div>
                         </div>
                     </div>
                 </div>
