@@ -138,41 +138,79 @@
                                             <td>$@data[i].PrecioCosto</td>
                                             <td>$@data[i].PrecioVenta</td>
                                             <td>
-                                                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal@(i)" style="color:white;">
-                                                    Editar
-                                                </a>
+                                                <!--BOTON EDITAR-->
+                                                <div class="row">
+                                                    <div class="col">
 
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="editModal@(i)" tabindex="-1" aria-labelledby="editModalLabel@(i)" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="editModalLabel@(i)">Editar @data[i].NombreProducto</h5>
-                                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true" style="color: #F216CE">×</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                @await Component.InvokeAsync(nameof(EditarModal), new{
-                                                                    id = data[i].id, 
-                                                                    NombreProducto = data[i].NombreProducto, 
-                                                                    Categoria = data[i].Categoria,
-                                                                    Descripcion = data[i].Descripcion,
-                                                                    Codigo = data[i].Codigo,
-                                                                    Marca = data[i].Marca,
-                                                                    Stock = data[i].Stock,
-                                                                    PrecioCosto = data[i].PrecioCosto,
-                                                                    PrecioVenta = data[i].PrecioVenta
-                                                                })
-                                                                <p id="error"></p>
-                                                                   
-                                                                <div class="dropdown-divider"></div>  
+                                                        <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal@(i)" style="color:white;">
+                                                            Editar
+                                                        </a>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="editModal@(i)" tabindex="-1" aria-labelledby="editModalLabel@(i)" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="editModalLabel@(i)">Editar @data[i].NombreProducto</h5>
+                                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true" style="color: #F216CE">×</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        @await Component.InvokeAsync(nameof(EditarModal), new
+                                                                        {
+                                                                            id = data[i].id,
+                                                                            NombreProducto = data[i].NombreProducto,
+                                                                            Categoria = data[i].Categoria,
+                                                                            Descripcion = data[i].Descripcion,
+                                                                            Codigo = data[i].Codigo,
+                                                                            Marca = data[i].Marca,
+                                                                            Stock = data[i].Stock,
+                                                                            PrecioCosto = data[i].PrecioCosto,
+                                                                            PrecioVenta = data[i].PrecioVenta
+                                                                        })
+                                                                        <p id="error"></p>
+
+                                                                        <div class="dropdown-divider"></div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
+
+                                                    </div>
+
+                                                    <div class="w-100"></div>
+
+                                                    <!--BOTON VENTA-->
+                                                    <div class="col">
+
+                                                        <a class="btn btn-primary" data-bs-toggle="modal" style="color:white;">
+                                                            Agregar a venta
+                                                        </a>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" tabindex="-1" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title">Agregar producto a Carrito de Venta</h5>
+                                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true" style="color: #F216CE">×</span>
+                                                                        </button>
+
+                                                                    </div>
+                                                                    <p id="error"></p>
+
+                                                                    <div class="dropdown-divider"></div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                 </div>
-                                            </td>
-                                        </tr>
+                                         </td>
+                                     </tr>
                                     }
                                 </tbody>
                             </table>
