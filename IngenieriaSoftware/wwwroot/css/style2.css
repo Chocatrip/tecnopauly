@@ -6,6 +6,13 @@
 */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300,500,700");
+
+#xeliminacarrito {
+    color: #BF0F61;
+}
+#xeliminacarrito:hover {
+    color: #FF0000;
+}
 .form-control:focus {
     border-color: #f173ff;
     box-shadow: 0 0 0 0.2rem rgba(255, 30, 146, 0.25);
