@@ -35,7 +35,7 @@ namespace IngenieriaSoftware.Controllers
             var username = model.username.Trim().ToLower();
             var pass = model.pass.Trim().ToLower();
 
-            if (pass.Length <= 8 || pass.Length >= 20) {
+            if (pass.Length < 8 || pass.Length > 20) {
                 CookieOptions optionsError = new CookieOptions();
                 optionsError.Expires = DateTime.Now.AddSeconds(2);
                 Response.Cookies.Append("errorRegister", "Ingrese-una-contrasena-entre-8-y-20-caracteres.", optionsError);
