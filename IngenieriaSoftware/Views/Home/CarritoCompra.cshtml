@@ -1,7 +1,12 @@
-﻿@*
+﻿@model IngenieriaSoftware.Models.CarritoDetalleModel
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{ Layout = "~/Views/Shared/_LayoutUser.cshtml"; }
+@{ 
+    Layout = "~/Views/Shared/_LayoutUser.cshtml"; 
+}
+
+
 <script src="~/js/CarritoCompra/Cotizacion.js"></script>
 <div class="cart_section">
     <div class="cart_top">
@@ -31,30 +36,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <th><img style="height:80px;" src="https://media.startech.com/cms/products/main/hdmimmxhs.main.jpg" /></th>
-                            <th>Cable</th>
-                            <th>A1234</th>
-                            <th>$200</th>
-                            <th>4</th>
-                            <th>$800</th>
+                        @for(int i = 0; i< Model.Items.Length; i++)
+                        {
+                            <tr>
+                            <th>@(i+1)</th>
+                            <th><img style="height:80px;" src="@Model.Items[i].ImagenPath" /></th>
+                            <th>@Model.Items[i].Nombre</th>
+                            <th>@Model.Items[i].Codigo</th>
+                            <th>$@Model.Items[i].Precio</th>
+                            <th>@Model.Items[i].Cantidad</th>
+                            <th>$@(Model.Items[i].Precio*Model.Items[i].Cantidad)</th>
                             <th class="cart_delete">
                                 <a class="cart_quantity_delete" href=""><i class="fa fa-times" id="xeliminacarrito"></i></a>
                             </th>
                         </tr>
-                        <tr>
-                            <th>2</th>
-                            <th><img style="height:80px;" src="https://www.westerndigital.com/content/dam/store/en-us/assets/products/usb-flash-drives/cruzer-blade-usb-2-0/gallery/cruzer-blade-usb-2-0-angle.png" /></th>
-                            <th>Usb</th>
-                            <th>B12345</th>
-                            <th>$400</th>
-                            <th>1</th>
-                            <th>$400</th>
-                            <th class="cart_delete">
-                                <a class="cart_quantity_delete" href=""><i class="fa fa-times" id="xeliminacarrito"></i></a>
-                            </th>
-                        </tr>
+                        }
                     </tbody>
                 </table>
             </div>
@@ -64,7 +60,7 @@
                     <div class="row justify-content-end" >
 
                         <div class="col-md-4 offset-md-4" style="text-align:end; margin-right: 30px">
-                            <h3>Total: $1200</h3>
+                            <h3>Total: $@Model.TotalPrecio</h3>
                         </div>
                     </div>
                     <div class="cart_top_letter">

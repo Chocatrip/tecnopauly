@@ -149,7 +149,34 @@ namespace IngenieriaSoftware.Controllers
 
         public IActionResult CarritoCompra()
         {
-            return View();
+            var idUsuarioString = (Request.Cookies["userId"] ?? "").ToString();
+            var idUsuario = Int32.Parse(idUsuarioString);
+
+            var carritoActivo = context.carrito.Where(car => car.id_cuenta == idUsuario && car.activo == 1).FirstOrDefault();
+
+            var itemsDetalle = context.carrito_detalle.Where(cd => cd.id_carrito == carritoActivo.id_carrito).ToArray();
+
+            var model = new Models.CarritoDetalleModel();
+
+            var queryProducto = context.producto;
+            var totalPrecio = 0;
+            Models.CarritoDetalleItem[] itemsArray = new CarritoDetalleItem[itemsDetalle.Length];
+
+            for (int i = 0; i < itemsDetalle.Length; i++) {
+                var item = new Models.CarritoDetalleItem {
+                    Nombre = itemsDetalle[i].nombre_producto,
+                    Codigo = queryProducto.Where(p => p.id == itemsDetalle[i].id_producto).Select(p => p.codigo).FirstOrDefault(),
+                    Cantidad = itemsDetalle[i].q_producto,
+                    Precio = itemsDetalle[i].precio_venta,
+                    ImagenPath = queryProducto.Where(p => p.id == itemsDetalle[i].id_producto).Select(p => p.imagen).FirstOrDefault()
+                };
+
+                totalPrecio += itemsDetalle[i].q_producto * itemsDetalle[i].precio_venta;
+                itemsArray[i] = item;
+            }
+            model.Items = itemsArray;
+            model.TotalPrecio = totalPrecio;
+            return View(model);
         }
 
         public IActionResult PruebaGuardarCotizacion() {
