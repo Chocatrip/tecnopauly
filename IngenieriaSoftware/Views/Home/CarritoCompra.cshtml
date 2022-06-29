@@ -1,55 +1,91 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-    Layout = "~/Views/Shared/_LayoutUser.cshtml";
-}
+@{ Layout = "~/Views/Shared/_LayoutUser.cshtml"; }
 <script src="~/js/CarritoCompra/Cotizacion.js"></script>
-<div class="table_section">
-    <div class="table_top">
-        <div class="container-fluid">
-            <div class="table_top_letter">
+<div class="cart_section">
+    <div class="cart_top">
+        <div class="cont-fluid">
+            <div class="cart_top_letter">
                 <div class="">
                     <h5 class="">Carrito de cotización</h5>
                 </div>
             </div>
         </div>
     </div>
-    <table class="table table-sm table_section">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Imagen</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>1</th>
-                <th><img style="height:200px; width:200px" src="https://media.startech.com/cms/products/main/hdmimmxhs.main.jpg"/></th>
-                <th>Cable</th>
-                <th>$200</th>
-                <th>4</th>
-                <th>$800</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <th><img style="height:200px; width:200px" src="https://www.westerndigital.com/content/dam/store/en-us/assets/products/usb-flash-drives/cruzer-blade-usb-2-0/gallery/cruzer-blade-usb-2-0-angle.png"/></th>
-                <th>Usb</th>
-                <th>$400</th>
-                <th>1</th>
-                <th>$400</th>
-            </tr>
-        </tbody>
-    </table>
-    <h2>Total: $1200</h2>
-    <a class="btn btn-primary"
-    data-idcarrito="1"
-    data-idcliente="2"
-    onclick="guardarCotizacion(this)"> 
-    Concretar cotización
-    </a>
+    <hr>
+    <div class="cart_top">
+        <div class="cont-fluid">
+            <div class="cart_top_letter">
+                <table class="table table-sm table_section">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Código</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <th><img style="height:80px;" src="https://media.startech.com/cms/products/main/hdmimmxhs.main.jpg" /></th>
+                            <th>Cable</th>
+                            <th>A1234</th>
+                            <th>$200</th>
+                            <th>4</th>
+                            <th>$800</th>
+                            <th class="cart_delete">
+                                <a class="cart_quantity_delete" href=""><i class="fa fa-times" id="xeliminacarrito"></i></a>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <th><img style="height:80px;" src="https://www.westerndigital.com/content/dam/store/en-us/assets/products/usb-flash-drives/cruzer-blade-usb-2-0/gallery/cruzer-blade-usb-2-0-angle.png" /></th>
+                            <th>Usb</th>
+                            <th>B12345</th>
+                            <th>$400</th>
+                            <th>1</th>
+                            <th>$400</th>
+                            <th class="cart_delete">
+                                <a class="cart_quantity_delete" href=""><i class="fa fa-times" id="xeliminacarrito"></i></a>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+            <div class="cart_top_letter">
+                <div class="cart_top_letter">
+                    <div class="row justify-content-end" >
+
+                        <div class="col-md-4 offset-md-4" style="text-align:end; margin-right: 30px">
+                            <h3>Total: $1200</h3>
+                        </div>
+                    </div>
+                    <div class="cart_top_letter">
+                        <div class="row justify-content-end" style="text-align:end">
+                            <div class="col-4 text_section">
+
+                            </div>
+                            <div class="col-md-3 offset-md-3">
+                                <a class="btn btn-primary"
+                                   style="color:white;"
+                                   data-idcarrito="1"
+                                   data-idcliente="2"
+                                   onclick="guardarCotizacion(this)">
+                                    Concretar cotización
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+

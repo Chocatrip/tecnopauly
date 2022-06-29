@@ -3280,6 +3280,7 @@ text-align: center;
 
     .table_section .table_top_letter {
         padding: 20px;
+        padding-bottom: 0;
         font-family: 'Poppins', sans-serif;
         color: #0c0c0c;
         background-color: #ffffff;
@@ -3436,6 +3437,44 @@ ul.sub-menu {
   }
 }
 
+/**** CARRITO COTIZACION ****/
+
+.cart_section {
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+    .cart_section .cont-fluid {
+        padding-right: 40px;
+        padding-left: 40px;
+        background-color: white;
+    }
+
+    .cart_section .cart_top {
+        padding: 10px 0;
+        background-color: white;
+    }
+
+    .cart_section .cart_bottom {
+        padding: 10px 0;
+    }
+
+    .cart_section .cart_top_letter {
+        padding: 20px;
+        font-family: 'Poppins', sans-serif;
+        color: #0c0c0c;
+        background-color: #ffffff;
+        overflow-x: hidden;
+    }
+
+    .cart_section h5 {
+        margin-bottom: 15px;
+        font-size: 35px;
+    }
+
+    .cart_section text_section {
+        text-align: end;
+    }
 
 
 /*************************
