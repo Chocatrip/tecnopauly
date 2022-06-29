@@ -6,6 +6,10 @@
     var divId =Model.id + "-agregar-carrito-form";
 }
 
+
+
+<div class="container">
+
 <div class="ibox-content" style="border-color:white" id=@divId>
     <div class="sk-spinner sk-spinner-cube-grid">
                                                                         <div class="sk-cube"></div>
@@ -18,19 +22,53 @@
                                                                         <div class="sk-cube"></div>
                                                                         <div class="sk-cube"></div>
                                                                     </div>
-    <h1>@Model.id</h1>
-    <h1>@Model.NombreProducto</h1>
-    <h1>@Model.Marca</h1>
-    <h1>@Model.Descripcion</h1>
-    <h1>@Model.PrecioVenta</h1>
-    <input id ="@("inputAddCartItem_Q_"+@Model.id)" type="number" value="1" required>
-    <button class="btn btn-primary"
-     id="product-btn"
-     data-idproducto="@Model.id"
-     onclick="agregarProductoCarrito(this)"
-     title="changeProduct">
-        Guardar cambios
-     </button>
+    <div class="col">
+        <div class="card">
+
+            <div class="card-body">
+
+                <div class="row">
+                    <!--COLUMNA DE NOMBRE Y MARCA-->
+                    <div class="col-sm">
+                        <h5 class="card-title">@Model.NombreProducto</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Marca @Model.Marca</h6>
+                    </div>
+                    <!--COLUMNA DE PRECIO-->
+                    <div class="col-sm">
+                        <h5 class="card-title">$@Model.PrecioVenta</h5>
+                    </div>
+                    <!--COLUMNA DE NUMERO-->
+                    <div class="col-sm">
+                        <div class="centerBlock">
+                        <div class="cart_quantity_button">
+                            <input class="cart_quantity_input" id="@("inputAddCartItem_Q_"+@Model.id)" style="text-align:center; max-width:50%;"type="number" size="2" value="1" required>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!--DESCRIPCION DEL PRODUCTO-->
+                <p class="card-text">@Model.Descripcion</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="col">
+            <center>
+                <button class="btn btn-primary"
+                        id="product-btn"
+                        data-idproducto="@Model.id"
+                        onclick="agregarProductoCarrito(this)"
+                        title="changeProduct">
+                    Agregar producto a Carrito
+                </button>
+            </center>
+        </div>
+    </div>
+    
+</div>    
 </div>
 
+    
+   
 
