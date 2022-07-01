@@ -48,6 +48,31 @@ namespace IngenieriaSoftware.Controllers.Api
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+        [Route("/api/eliminar-producto-carrito/{codproducto}/{idUsuario}")]
+        public async Task<IActionResult> EliminarProductoCarrito(string codproducto, string idUsuario)
+        {
+            try
+            {
+                var IdUsuario = Int32.Parse(idUsuario);
+                var carrito = context.carrito.Where(c => c.id_cuenta == IdUsuario && c.activo == 1).FirstOrDefault();
+                var carritoCambiar = context.carrito_detalle.Where(c => c.id_carrito == carrito.id_carrito && c.cod_prod == codproducto).FirstOrDefault();
+                context.carrito_detalle.Remove(carritoCambiar);
+                context.SaveChanges();
+
+                var checkCarrito = context.carrito_detalle.Where(c => c.id_carrito == carrito.id_carrito).FirstOrDefault();
+                if (checkCarrito == null) {
+                    var carritoIdborrar = context.carrito.Where(c => c.id_carrito == carrito.id_carrito).FirstOrDefault();
+                    context.carrito.Remove(carritoIdborrar);
+                    context.SaveChanges();
+                }
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
         [Route("concretar-venta/{idVenta}/")]
         public async Task<IActionResult> ConcretarVenta(int idVenta)
         {

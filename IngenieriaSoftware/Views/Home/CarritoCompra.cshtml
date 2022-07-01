@@ -8,7 +8,20 @@
 
 
 <script src="~/js/CarritoCompra/Cotizacion.js"></script>
-<div class="cart_section">
+<script src="~/js/CarritoCompra/EliminarProducto.js"></script>
+<div class="ibox-content cart_section" id="carrito-compra-tab">
+
+    <div class="sk-spinner sk-spinner-cube-grid">
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                        <div class="sk-cube"></div>
+                                                                    </div>
     <div class="cart_top">
         <div class="cont-fluid">
             <div class="cart_top_letter">
@@ -53,7 +66,14 @@
                             <th>@Model.Items[i].Cantidad</th>
                             <th>$@(Model.Items[i].Precio*Model.Items[i].Cantidad)</th>
                             <th class="cart_delete">
-                                <a class="cart_quantity_delete" href=""><i class="fa fa-times" id="xeliminacarrito"></i></a>
+                                <a 
+                                                class="btn btn-dark"  
+                                                style="color:white;"
+                                                data-codproducto="@Model.Items[i].Codigo"
+                                                onclick="eliminarProductoCarrito(this)"
+                                             >
+                                            Eliminar
+                                        </a>
                             </th>
                         </tr>
                         }
