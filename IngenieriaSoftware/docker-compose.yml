@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    environment:
+      - ConnectionStrings__DB=Server=db;Database=ingsoftware;User Id=ingsoftware;Password=proyecto!1;SSL Mode=Prefer;
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: ingsoftware
+      POSTGRES_PASSWORD: proyecto!1
+      POSTGRES_DB: ingsoftware
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+volumes:
+  dbdata:
