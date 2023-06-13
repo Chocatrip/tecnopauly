@@ -1,124 +1,68 @@
-@@ -1,3 +1,295 @@
-# Compiled source #
-###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-*.csproj.user
-*.suo
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Visual Studio files #
+#######################
 *.user
-*.userosscache
-*.cache
-*.dll.config
-*.dump
-*.pdb
-*.DS_Store
-*.nupkg
-*.nuget.props
-*.nuget.targets
-*.pubxml
-*.svclog
-*.svclog
-*.testlog
-*.dbmdl
-*.dbproj.schemaview
-*.pfx
-*.publishsettings
-_ClientHost.log
-msvsmon.exe
-*.pidb
-*.svclog
-*.scc
-
-# Visual Studio 2015/2017 cache/options directory
-.vs/
-
-# Visual Studio 2015/2017/2019 backup files
-*_i.c
-*_p.c
-*_i.h
-*.ilk
-*.meta
-*.obj
-*.pch
-*.pdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
-*.tmp
-*.tmp_proj
-*_wpftmp.csproj
-*.log
-*.vspscc
-*.vssscc
-.bak.*
-*.cache
-*.docstates
-*.dll
-*.exe
-*.pdb
-*.xml
-*_lo.cs
-*.idb
-*.svclog
-*.dbmdl
-*.ipch
-*.ncb
 *.suo
-*.opensdf
-*.sdf
-*.cachefile
-*.VC.db
-*.VC.VC.opendb
+*.userosscache
+*.sln.docstates
 
-# Mono / XBuild
+# Build results #
+#################
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+x64/
+x86/
 build/
-*.pidb
-
-# Build Results
+bld/
 [Bb]in/
 [Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
 
-# NuGet Packages Directory
-*.nupkg
-# NuGet Symbol Packages
-*.snupkg
+# Visual Studio 2015 / .NET Core specific #
+###########################################
+.vs/
+*.dnx
+project.lock.json
+*.kproj
+*.slnx
+*.userosscache
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
 # The packages folder can be ignored because of Package Restore
 **/packages/*
 # except build/, which is used as an MSBuild target.
 !**/packages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/packages/repositories.config
+*.nupkg
+*.snupkg
 
-# ReSharper is a .NET coding add-in
-_ReSharper*/
-*.[Rr]e[Ss]harper
-
-# TeamCity is a build add-in
-_TeamCity*
-
-# DotCover is a Code Coverage Tool
-*.dotCover
-
-# JetBrains Rider
-.idea/
-*.sln.iml
-
-# Azure DevOps cache/options directory
-.ado/
-
-# Ignore .NET SDK log files
-.dotnet/
-
-# ASP.NET Scaffolding
-ScaffoldingReadMe.txt
+# logs
+*.log
 
 # JetBrains Rider
 .idea/
@@ -130,72 +74,27 @@ ScaffoldingReadMe.txt
 *.userosscache
 *.sln.docstates
 
+# Unit test results #
+#####################
+[Testt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Azure DevOps cache/options directory
+.ado/
+
+# Ignore .NET SDK log files
+.dotnet/
+
+# NuGet Packages
+*.nupkg
+# NuGet Symbol Packages
+*.snupkg
+# Nuget v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
+
 # Microsoft Azure Build Output
 csx/
-
-# Microsoft Azure Emulator
-ecf/
-rcf/
-
-# Windows Store app package directories and files
-AppPackages/
-BundleArtifacts/
-Package.StoreAssociation.xml
-_pkginfo.txt
-*.appx
-
-# Visual Studio cache files
-# files ending in .cache can be ignored
-*.[Cc]ache
-# but keep track of directories ending in .cache
-!*.[Cc]ache/
-
-# Others
-ClientBin/
-[Ss]tyle[Cc]op.*
-~$*
-*~
-*.dbmdl
-*.dbproj.schemaview
-*.pfx
-*.publishsettings
-orleans.codegen.cs
-
-# Since there are multiple workflows, uncomment next line to ignore bower_components 
-# (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
-#bower_components/
-
-# RIA/Silverlight projects
-Generated_Code/
-
-# Backup & report files from converting an old project file to a newer
-# Visual Studio version. Backup files are not needed, because we have git ;-)
-_UpgradeReport_Files/
-Backup*/
-UpgradeLog*.XML
-UpgradeLog*.htm
-ServiceFabricBackup/
-*.rptproj.bak
-
-# SQL Server files
-*.mdf
-*.ldf
-*.ndf
-
-# Business Intelligence projects
-*.rdl.data
-*.bim.layout
-*.bim_*.settings
-*.rptproj.rsuser
-*-Backup*.rdl
-*-Backup*.rsd
-*-Backup*.rptproj
-
-# Microsoft Fakes
-FakesAssemblies/
-
-# GhostDoc plugin setting file
-*.GhostDoc.xml
 
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
@@ -207,9 +106,6 @@ node_modules/
 # Visual Studio 6 workspace options file
 *.opt
 
-# Visual Studio 6 auto-generated workspace file (contains which files were open etc.)
-*.vbw
-
 # Visual Studio LightSwitch build output
 **/*.HTMLClient/GeneratedArtifacts
 **/*.DesktopClient/GeneratedArtifacts
@@ -218,20 +114,6 @@ node_modules/
 **/*.Server/ModelManifest.xml
 _Pvt_Extensions
 
-# Paket dependency manager
-.paket/paket.exe
-paket-files/
-
-# FAKE - F# Make
-.fake/
-
-# JetBrains Rider
-.idea/
-*.sln.iml
-
-# CodeRush personal settings
-.cr/personal
-
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
@@ -239,58 +121,3 @@ __pycache__/
 # Cake - Uncomment if you are using it
 # tools/**
 #!tools/packages.config
-
-# Tabs Studio
-*.tss
-
-# Telerik's JustMock configuration file
-*.jmconfig
-
-# BizTalk build output
-*.btp.cs
-*.btm.cs
-*.odx.cs
-*.xsd.cs
-
-# OpenCover UI analysis results
-OpenCover/
-
-# Azure Stream Analytics local run output
-ASALocalRun/
-
-# MSBuild Binary and Structured Log
-*.binlog
-
-# NVidia Nsight GPU debugger configuration file
-*.nvuser
-
-# MFractors (Xamarin productivity tool) working folder
-.mfractor/
-
-# Local History for Visual Studio
-.localhistory/
-
-# BeatPulse healthcheck temp database
-healthchecksdb
-
-# Backup folder for Package Reference Convert tool in Visual Studio 2017
-MigrationBackup/
-
-# Ionide (cross platform F# VS Code tools) working folder
-.ionide/
-
-# Fody - auto-generated XML schema
-FodyWeavers.xsd
-
-# VS Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# Local History for Visual Studio
-.localhistory
-
-# BeatPulse healthcheck temp database
-healthchecksdb
